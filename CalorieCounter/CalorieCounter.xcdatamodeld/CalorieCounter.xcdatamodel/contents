@@ -13,7 +13,7 @@
         <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="log" inverseEntity="Food"/>
     </entity>
     <elements>
-        <element name="Food" positionX="-171.5994415283203" positionY="-28.00836181640625" width="126.1505737304688" height="119"/>
+        <element name="Food" positionX="-326.5903472900391" positionY="-55.88916015625" width="118.6497955322266" height="119"/>
         <element name="Log" positionX="267.6126708984375" positionY="89.11874389648438" width="123.1353759765625" height="59"/>
     </elements>
 </model>

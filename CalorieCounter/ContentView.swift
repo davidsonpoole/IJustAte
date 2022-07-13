@@ -18,15 +18,20 @@ struct ContentView: View {
     @State private var isAddLogActive = false
     private var router = Navigator()
     
+    
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    List {
-                        ForEach(logs) { log in
-                            Navigator.navigate(.viewLog(log)) {
-                                LogCard(log: log)
-                            }
+//                if let todaysLog = logs.first(where: {$0.timestamp!.get(.day) == Date().get(.day)}) {
+//                    Navigator.navigate(.viewLog(todaysLog)) {
+//                        LogCard(log: todaysLog)
+//                    }
+//                }
+//                Spacer()
+                List {
+                    ForEach(logs) { log in
+                        Navigator.navigate(.viewLog(log)) {
+                            LogCard(log: log)
                         }
                     }
                 }
@@ -53,8 +58,18 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Log list")
+            .navigationTitle("Today's Log")
         }
+    }
+}
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
     }
 }
 
