@@ -42,7 +42,7 @@ import SwiftUI
 //}
 
 enum Route {
-    case viewFood
+    case viewFood(Food)
     case viewLog(Log)
     case addFood(Binding<Bool>)
     case addLog(Binding<Bool>)
@@ -52,8 +52,8 @@ struct Navigator {
     
     @ViewBuilder func view(for route: Route) -> some View {
             switch route {
-            case .viewFood:
-                ViewFood()
+            case .viewFood(let food):
+                ViewFood(food: food)
     
             case .viewLog(let log):
                 ViewLog(log: log)
@@ -70,8 +70,8 @@ struct Navigator {
     @ViewBuilder static func navigate<T: View>(_ route: Route, content: () -> T) -> some View {
         
         switch route {
-        case .viewFood:
-            NavigationLink(destination: ViewFood()) {
+        case .viewFood(let food):
+            NavigationLink(destination: ViewFood(food: food)) {
                 content()
             }
         case .viewLog(let log):

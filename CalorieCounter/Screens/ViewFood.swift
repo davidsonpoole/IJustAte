@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ViewFood: View {
+    var food: Food
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        FoodCard(food: food)
     }
 }
 
-struct ViewFood_Previews: PreviewProvider {
-    static var previews: some View {
-        ViewFood()
-    }
-}
+//struct ViewFood_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ViewFood()
+//    }
+//}
