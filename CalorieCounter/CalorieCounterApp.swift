@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct CalorieCounterApp: App {
     let persistenceController = PersistenceController.shared
+//    let router = AppRouter()
 
     var body: some Scene {
         WindowGroup {

@@ -13,6 +13,16 @@
 		AC9D57D9285D0C8D007956D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */; };
 		AC9D57DB285D0C8D007956D2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* Persistence.swift */; };
 		AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */; };
+		ACF25D82287E005B00D7BFF2 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D81287E005B00D7BFF2 /* Routing.swift */; };
+		ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D85287E016F00D7BFF2 /* ViewFood.swift */; };
+		ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D87287E017300D7BFF2 /* ViewLog.swift */; };
+		ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D89287E017A00D7BFF2 /* AddFood.swift */; };
+		ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D8B287E017F00D7BFF2 /* AddLog.swift */; };
+		ACF25D93287E033500D7BFF2 /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D92287E033500D7BFF2 /* LogCard.swift */; };
+		ACF25D95287E033D00D7BFF2 /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D94287E033D00D7BFF2 /* FoodCard.swift */; };
+		ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */; };
+		ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */; };
+		ACF25D9B287F239F00D7BFF2 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D9A287F239F00D7BFF2 /* LogFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +33,16 @@
 		AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC9D57DA285D0C8D007956D2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
+		ACF25D81287E005B00D7BFF2 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		ACF25D85287E016F00D7BFF2 /* ViewFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFood.swift; sourceTree = "<group>"; };
+		ACF25D87287E017300D7BFF2 /* ViewLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLog.swift; sourceTree = "<group>"; };
+		ACF25D89287E017A00D7BFF2 /* AddFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFood.swift; sourceTree = "<group>"; };
+		ACF25D8B287E017F00D7BFF2 /* AddLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLog.swift; sourceTree = "<group>"; };
+		ACF25D92287E033500D7BFF2 /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
+		ACF25D94287E033D00D7BFF2 /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
+		ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+PreviewProvider.swift"; sourceTree = "<group>"; };
+		ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+PreviewProvider.swift"; sourceTree = "<group>"; };
+		ACF25D9A287F239F00D7BFF2 /* LogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +75,12 @@
 		AC9D57D0285D0C8B007956D2 /* CalorieCounter */ = {
 			isa = PBXGroup;
 			children = (
+				ACF25D91287E032900D7BFF2 /* Cards */,
+				ACF25D8E287E01A500D7BFF2 /* Screens */,
 				AC9D57D1285D0C8B007956D2 /* CalorieCounterApp.swift */,
 				AC9D57D3285D0C8B007956D2 /* ContentView.swift */,
+				ACF25D9A287F239F00D7BFF2 /* LogFormatter.swift */,
+				ACF25D81287E005B00D7BFF2 /* Routing.swift */,
 				AC9D57D5285D0C8D007956D2 /* Assets.xcassets */,
 				AC9D57DA285D0C8D007956D2 /* Persistence.swift */,
 				AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */,
@@ -68,9 +92,31 @@
 		AC9D57D7285D0C8D007956D2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */,
+				ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */,
 				AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ACF25D8E287E01A500D7BFF2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ACF25D85287E016F00D7BFF2 /* ViewFood.swift */,
+				ACF25D87287E017300D7BFF2 /* ViewLog.swift */,
+				ACF25D89287E017A00D7BFF2 /* AddFood.swift */,
+				ACF25D8B287E017F00D7BFF2 /* AddLog.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ACF25D91287E032900D7BFF2 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				ACF25D92287E033500D7BFF2 /* LogCard.swift */,
+				ACF25D94287E033D00D7BFF2 /* FoodCard.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +189,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */,
+				ACF25D82287E005B00D7BFF2 /* Routing.swift in Sources */,
+				ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */,
+				ACF25D95287E033D00D7BFF2 /* FoodCard.swift in Sources */,
+				ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */,
+				ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */,
 				AC9D57DB285D0C8D007956D2 /* Persistence.swift in Sources */,
 				AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */,
+				ACF25D9B287F239F00D7BFF2 /* LogFormatter.swift in Sources */,
+				ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */,
 				AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */,
+				ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */,
+				ACF25D93287E033500D7BFF2 /* LogCard.swift in Sources */,
 				AC9D57D2285D0C8B007956D2 /* CalorieCounterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
