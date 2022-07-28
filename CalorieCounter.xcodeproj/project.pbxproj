@@ -13,6 +13,11 @@
 		AC9D57D9285D0C8D007956D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */; };
 		AC9D57DB285D0C8D007956D2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* Persistence.swift */; };
 		AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */; };
+		ACBA874F2880E26000474639 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
+		ACF060862881A2FC002D3017 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060852881A2FC002D3017 /* LoginView.swift */; };
+		ACF060882881A3F0002D3017 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060872881A3F0002D3017 /* HomeView.swift */; };
+		ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */; };
+		ACF0608C2881E0B2002D3017 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF0608B2881E0B2002D3017 /* DataManager.swift */; };
 		ACF25D82287E005B00D7BFF2 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D81287E005B00D7BFF2 /* Routing.swift */; };
 		ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D85287E016F00D7BFF2 /* ViewFood.swift */; };
 		ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D87287E017300D7BFF2 /* ViewLog.swift */; };
@@ -33,6 +38,11 @@
 		AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC9D57DA285D0C8D007956D2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
+		ACBA874E2880E26000474639 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		ACF060852881A2FC002D3017 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ACF060872881A3F0002D3017 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+PreviewProvider.swift"; sourceTree = "<group>"; };
+		ACF0608B2881E0B2002D3017 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		ACF25D81287E005B00D7BFF2 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		ACF25D85287E016F00D7BFF2 /* ViewFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFood.swift; sourceTree = "<group>"; };
 		ACF25D87287E017300D7BFF2 /* ViewLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLog.swift; sourceTree = "<group>"; };
@@ -78,7 +88,10 @@
 				ACF25D91287E032900D7BFF2 /* Cards */,
 				ACF25D8E287E01A500D7BFF2 /* Screens */,
 				AC9D57D1285D0C8B007956D2 /* CalorieCounterApp.swift */,
+				ACBA874E2880E26000474639 /* Macro.swift */,
 				AC9D57D3285D0C8B007956D2 /* ContentView.swift */,
+				ACF060872881A3F0002D3017 /* HomeView.swift */,
+				ACF060852881A2FC002D3017 /* LoginView.swift */,
 				ACF25D9A287F239F00D7BFF2 /* LogFormatter.swift */,
 				ACF25D81287E005B00D7BFF2 /* Routing.swift */,
 				AC9D57D5285D0C8D007956D2 /* Assets.xcassets */,
@@ -95,6 +108,7 @@
 				ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */,
 				ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */,
 				AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */,
+				ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -106,6 +120,7 @@
 				ACF25D87287E017300D7BFF2 /* ViewLog.swift */,
 				ACF25D89287E017A00D7BFF2 /* AddFood.swift */,
 				ACF25D8B287E017F00D7BFF2 /* AddLog.swift */,
+				ACF0608B2881E0B2002D3017 /* DataManager.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -135,6 +150,8 @@
 			dependencies = (
 			);
 			name = CalorieCounter;
+			packageProductDependencies = (
+			);
 			productName = CalorieCounter;
 			productReference = AC9D57CE285D0C8B007956D2 /* CalorieCounter.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +180,8 @@
 				Base,
 			);
 			mainGroup = AC9D57C5285D0C8B007956D2;
+			packageReferences = (
+			);
 			productRefGroup = AC9D57CF285D0C8B007956D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -193,15 +212,20 @@
 				ACF25D82287E005B00D7BFF2 /* Routing.swift in Sources */,
 				ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */,
 				ACF25D95287E033D00D7BFF2 /* FoodCard.swift in Sources */,
+				ACBA874F2880E26000474639 /* Macro.swift in Sources */,
+				ACF060882881A3F0002D3017 /* HomeView.swift in Sources */,
 				ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */,
 				ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */,
 				AC9D57DB285D0C8D007956D2 /* Persistence.swift in Sources */,
 				AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */,
 				ACF25D9B287F239F00D7BFF2 /* LogFormatter.swift in Sources */,
 				ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */,
+				ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */,
 				AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */,
+				ACF0608C2881E0B2002D3017 /* DataManager.swift in Sources */,
 				ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */,
 				ACF25D93287E033500D7BFF2 /* LogCard.swift in Sources */,
+				ACF060862881A2FC002D3017 /* LoginView.swift in Sources */,
 				AC9D57D2285D0C8B007956D2 /* CalorieCounterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

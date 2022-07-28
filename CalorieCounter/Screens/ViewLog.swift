@@ -11,34 +11,57 @@ struct ViewLog: View {
     var log: Log
     
     var body: some View {
-        VStack {
-            Text(logFormatter.string(from: log.timestamp!))
-//            if let foods = log.foods?.allObjects as? [Food] {
-//                List {
-//                    ForEach(foods) { food in
-//                        Navigator.navigate(.viewFood(food)) {
-//                            Text("\(food.name!)")
-//                        }
-//                    }
-//                }
-//            }
-            if let foods = log.foods?.allObjects as? [Food] {
-                List {
-                    ForEach(foods) { food in
-                        Navigator.navigate(.viewFood(food)) {
-                            Text("\(food.name!)")
+        VStack(spacing: 0) {
+            List {
+                ForEach(log.foodArr) { food in
+                    Navigator.navigate(.viewFood(food)) {
+                        HStack {
+                            Text(food.name!)
+                            Spacer()
+                            Text("\(food.cal)")
+                                .padding([.trailing], 20)
                         }
                     }
                 }
-                let totals = totals(foods)
-                Text("Totals")
-                Text("calories: \(totals.cal)")
-                Text("carbohydrates: \(totals.car)")
-                Text("protein: \(totals.pro)")
-                Text("fat: \(totals.fat)")
             }
+            Divider()
+            Totals(log.totals)
+                .padding()
+            Divider()
         }
     }
+}
+
+struct Totals: View {
+    private var totals: Macro
+    
+    init(_ totals: Macro) { self.totals = totals }
+    
+    var body: some View {
+        HStack(alignment: .top) {
+            Text("Totals")
+                .font(.bold(.largeTitle)())
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text("**calories**: ")
+                    Text("**carbohydrates**: ")
+                    Text("**protein**: ")
+                    Text("**fat**: ")
+                }
+                .frame(maxHeight: .infinity, alignment: .topLeading)
+                VStack(alignment: .trailing) {
+                    Text("\(totals.cal)")
+                    Text("\(totals.car)")
+                    Text("\(totals.pro)")
+                    Text("\(totals.fat)")
+                }
+                .frame(maxHeight: .infinity, alignment: .topLeading)
+            }
+        }
+        .frame(height: 70)
+    }
+    
 }
 
 //struct ViewLog_Previews: PreviewProvider {

@@ -13,12 +13,25 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
+        var foodArr = [Food]()
         for _ in 0..<10 {
             let newFood = Food(context: viewContext)
             newFood.name = "Hummus"
-            let newLog = Log(context: viewContext)
-            newLog.timestamp = Date()
+            foodArr.append(newFood)
         }
+        let newLog = Log(context: viewContext)
+        newLog.timestamp = Date()
+        newLog.foods = Set(foodArr) as NSSet
+        let newGoal = Goal(context: viewContext)
+        newGoal.cal = 2000
+        newGoal.car = 500
+        newGoal.pro = 50
+        newGoal.fat = 20
+        let newUser = User(context: viewContext)
+        newUser.username = "davidson"
+        newUser.password = "password"
+        newUser.log = NSSet(object: newLog)
+        newUser.goal = newGoal
         do {
             try viewContext.save()
         } catch {

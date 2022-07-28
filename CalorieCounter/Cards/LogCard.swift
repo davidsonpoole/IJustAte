@@ -11,34 +11,18 @@ struct LogCard: View {
     var log: Log
     
     var body: some View {
+        GeometryReader { geo in
             VStack {
-                Text("\(logFormatter.string(from: log.timestamp!))")
+                ViewLog(log: log)
+                Spacer()
             }
+            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.7)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2))
+            .padding()
+        }
     }
-}
-
-func totals(_ foods: [Food]) -> Macro {
-    var totalCal = 0
-    var totalCar = 0
-    var totalFat = 0
-    var totalPro = 0
-    guard foods.count > 0 else {return Macro.empty}
-    for food in foods {
-        totalCal += Int(food.cal)
-        totalCar += Int(food.car)
-        totalFat += Int(food.fat)
-        totalPro += Int(food.pro)
-    }
-    return Macro(cal: totalCal, car: totalCar, pro: totalPro, fat: totalFat)
-}
-
-struct Macro {
-    var cal: Int
-    var car: Int
-    var pro: Int
-    var fat: Int
-    
-    static var empty = Self.init(cal: 0, car: 0, pro: 0, fat: 0)
 }
 
 struct LogCard_Previews: PreviewProvider {
