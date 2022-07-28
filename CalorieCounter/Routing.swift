@@ -7,43 +7,9 @@
 
 import SwiftUI
 
-//protocol Routing {
-//    associatedtype Route
-//    associatedtype View: SwiftUI.View
-//
-//    @ViewBuilder func view(for route: Route) -> Self.View
-//}
-//
-//enum AppRoute {
-//    case viewFood
-//    case viewLog
-////    case addFood
-////    case addLog
-//}
-//
-//struct AppRouter: Routing {
-//
-//    func view(for route: AppRoute) -> some View {
-//        switch route {
-//        case .viewFood:
-//            ViewFood()
-//
-//        case .viewLog:
-//            ViewLog()
-//
-////        case .addFood:
-//////            AddFood()
-////
-////        case .addLog:
-//////            AddLog()
-//
-//        }
-//    }
-//}
-
 enum Route {
-    case viewFood(Food)
-    case viewLog(Log)
+    case viewFood(FoodEntity)
+    case viewLog(LogEntity)
     case addFood(Binding<Bool>)
     case addLog(Binding<Bool>)
 }

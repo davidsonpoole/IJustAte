@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct AddFood: View {
-    @Environment(\.managedObjectContext) private var viewContext: NSManagedObjectContext
+    @EnvironmentObject private var viewModel: CoreDataViewModel
     
     @Binding var isAddFoodActive: Bool
     @State private var name: String = ""
@@ -18,43 +18,56 @@ struct AddFood: View {
     @State private var car: String = ""
     @State private var fat: String = ""
     var body: some View {
-        TextField("Food", text: $name)
-            .padding()
-            .border(.black)
-        TextField("Calories", text: $cal)
-        TextField("Protein", text: $pro)
-        TextField("Carbs", text: $car)
-        TextField("Fat", text: $fat)
-        Spacer()
-        Text("Enter")
-            .onTapGesture {
-                if validateFood() {
-                    // send food to database
-                    withAnimation {
-                        let newFood = Food(context: viewContext)
-                        newFood.name = name
-                        newFood.cal = Int16(cal) ?? 0
-                        newFood.pro = Int16(pro) ?? 0
-                        newFood.car = Int16(car) ?? 0
-                        newFood.fat = Int16(fat) ?? 0
-            
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            let nsError = error as NSError
-                            fatalError("Error saving food \(nsError), \(nsError.userInfo)")
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Add Food")
+                .font(.largeTitle)
+                .padding()
+            CustomTextField(name: "Food", input: $name)
+            CustomTextField(name: "Calories", input: $cal)
+            CustomTextField(name: "Protein", input: $pro)
+            CustomTextField(name: "Carbs", input: $car)
+            CustomTextField(name: "Fat", input: $fat)
+            Spacer()
+            Text("Enter")
+                .frame(maxWidth: .infinity, alignment: .center)
+                .onTapGesture {
+                    if validateFood() {
+                        // send food to database
+                        withAnimation {
+                            viewModel.addFood(
+                                name: name,
+                                cal: Int(cal) ?? 0,
+                                car: Int(car) ?? 0,
+                                pro: Int(pro) ?? 0,
+                                fat: Int(fat) ?? 0
+                                )
                         }
+                        isAddFoodActive = false
+                    } else {
+                        // send error
                     }
-                    isAddFoodActive = false
-                } else {
-                    // send error
                 }
-            }
+        }
     }
     
     private func validateFood() -> Bool {
         // validate each parameter
         return true
+    }
+}
+
+struct CustomTextField: View {
+    @State var name: String
+    var input: Binding<String>
+    var body: some View {
+        TextField(name, text: input)
+            .padding()
+            .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(.black, lineWidth: 0.5)
+            )
+            .padding([.trailing, .leading], 10)
+            .padding([.top, .bottom], 5)
     }
 }
 //

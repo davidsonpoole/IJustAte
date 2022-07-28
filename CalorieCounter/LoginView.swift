@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @Binding var authenticated: Bool
-    @Binding var user: User?
+    @Binding var user: UserEntity?
     
     @State private var username = ""
     @State private var password = ""
@@ -43,7 +43,7 @@ struct LoginView: View {
 
 struct LoginView_PreviewHelper: View {
     @State private var value = false
-    @State private var user: User? = nil
+    @State private var user: UserEntity? = nil
     
     var body: some View {
         LoginView(authenticated: $value, user: $user)

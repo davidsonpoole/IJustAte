@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-extension User {
-    static var example: User {
-        let context = PersistenceController.preview.container.viewContext
-        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+extension UserEntity {
+    static var example: UserEntity {
+        let context = CoreDataViewModel.preview.container.viewContext
+        let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)
         return (results?.first!)!

@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct CalorieCounterApp: App {
-    let persistenceController = PersistenceController.shared
 //    let router = AppRouter()
+    @StateObject var viewModel: CoreDataViewModel = CoreDataViewModel.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(viewModel)
         }
     }
 }

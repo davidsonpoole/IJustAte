@@ -8,18 +8,18 @@
 import Foundation
 import CoreData
 
-extension Log {
-    static var example: Log {
-        let context = PersistenceController.preview.container.viewContext
-        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
+extension LogEntity {
+    static var example: LogEntity {
+        let context = CoreDataViewModel.preview.container.viewContext
+        let fetchRequest: NSFetchRequest<LogEntity> = LogEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)
         return (results?.first!)!
     }
     
-    static var examples: [Log] {
-        let context = PersistenceController.preview.container.viewContext
-        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
+    static var examples: [LogEntity] {
+        let context = CoreDataViewModel.preview.container.viewContext
+        let fetchRequest: NSFetchRequest<LogEntity> = LogEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)
         return results!
