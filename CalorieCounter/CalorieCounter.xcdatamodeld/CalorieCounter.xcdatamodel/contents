@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Food" representedClassName="Food" syncable="YES" codeGenerationType="class">
+    <entity name="FoodEntity" representedClassName="FoodEntity" syncable="YES" codeGenerationType="class">
         <attribute name="cal" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="car" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="fat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="pro" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="log" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="foods" inverseEntity="Log"/>
+        <relationship name="log" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LogEntity" inverseName="foods" inverseEntity="LogEntity"/>
     </entity>
-    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
+    <entity name="GoalEntity" representedClassName="GoalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="cal" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="car" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="fat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="pro" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="goal" inverseEntity="User"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="goal" inverseEntity="UserEntity"/>
     </entity>
-    <entity name="Log" representedClassName="Log" syncable="YES" codeGenerationType="class">
+    <entity name="LogEntity" representedClassName="LogEntity" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="log" inverseEntity="Food"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="log" inverseEntity="User"/>
+        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FoodEntity" inverseName="log" inverseEntity="FoodEntity"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="log" inverseEntity="UserEntity"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
-        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal"/>
-        <relationship name="log" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Log" inverseName="user" inverseEntity="Log"/>
+        <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalEntity" inverseName="user" inverseEntity="GoalEntity"/>
+        <relationship name="log" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LogEntity" inverseName="user" inverseEntity="LogEntity"/>
     </entity>
     <elements>
-        <element name="Food" positionX="-326.5903472900391" positionY="-55.88916015625" width="118.6497955322266" height="119"/>
-        <element name="Log" positionX="267.6126708984375" positionY="89.11874389648438" width="123.1353759765625" height="88"/>
-        <element name="User" positionX="40.97747802734375" positionY="235.2432861328125" width="128" height="103"/>
-        <element name="Goal" positionX="-308.8258056640625" positionY="267.9312438964844" width="128" height="118"/>
+        <element name="FoodEntity" positionX="-326.5903472900391" positionY="-55.88916015625" width="118.6497955322266" height="119"/>
+        <element name="GoalEntity" positionX="-308.8258056640625" positionY="267.9312438964844" width="128" height="104"/>
+        <element name="LogEntity" positionX="267.6126708984375" positionY="89.11874389648438" width="123.1353759765625" height="74"/>
+        <element name="UserEntity" positionX="40.97747802734375" positionY="235.2432861328125" width="128" height="89"/>
     </elements>
 </model>

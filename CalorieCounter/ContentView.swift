@@ -10,7 +10,9 @@ import CoreData
 
 struct ContentView: View {
     @State private var authenticated = true
-    @State private var user: User? = nil
+    @State private var user: UserEntity? = nil
+    
+    // authentication not currently used
     
     var body: some View {
         if (authenticated) {
@@ -23,6 +25,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, CoreDataViewModel.preview.container.viewContext)
     }
 }

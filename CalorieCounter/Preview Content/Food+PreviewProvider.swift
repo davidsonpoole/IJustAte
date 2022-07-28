@@ -8,10 +8,10 @@
 import Foundation
 import CoreData
 
-extension Food {
-    static var example: Food {
-        let context = PersistenceController.preview.container.viewContext
-        let fetchRequest: NSFetchRequest<Food> = Food.fetchRequest()
+extension FoodEntity {
+    static var example: FoodEntity {
+        let context = CoreDataViewModel.preview.container.viewContext
+        let fetchRequest: NSFetchRequest<FoodEntity> = FoodEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)
         return (results?.first!)!

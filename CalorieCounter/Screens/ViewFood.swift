@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct ViewFood: View {
-    var food: Food
+    var food: FoodEntity
     
     var body: some View {
-        FoodCard(food: food)
+        VStack(alignment: .leading) {
+            Text("Food: \(food.name!)")
+                .font(.largeTitle)
+            Spacer().frame(maxHeight: 200)
+            Text("\(food.cal) calories")
+            Text("\(food.pro)g protein")
+            Text("\(food.fat)g fat")
+            Text("\(food.car)g carbohydrates")
+        }
+        .font(.title)
+        .padding(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 

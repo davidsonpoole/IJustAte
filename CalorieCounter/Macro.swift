@@ -24,9 +24,9 @@ struct Macro {
     }
 }
 
-extension Log {
-    var foodArr: [Food] {
-        return foods?.allObjects as? [Food] ?? [Food]()
+extension LogEntity {
+    var foodArr: [FoodEntity] {
+        return foods?.allObjects as? [FoodEntity] ?? [FoodEntity]()
     }
     
     var totals: Macro {
@@ -34,7 +34,7 @@ extension Log {
     }
 }
 
-extension Food {
+extension FoodEntity {
     var macro: Macro {
         return Macro(cal: Int(cal), car: Int(car), pro: Int(pro), fat: Int(fat))
     }

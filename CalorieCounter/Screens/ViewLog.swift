@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ViewLog: View {
-    var log: Log
+    var log: LogEntity
     
     var body: some View {
         VStack(spacing: 0) {
