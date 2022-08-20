@@ -29,18 +29,22 @@ struct AddFood: View {
             CustomTextField(name: "Fat", input: $fat)
             Spacer()
             Text("Enter")
+                .padding()
+                .background(.green)
+                .cornerRadius(10)
+                .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .onTapGesture {
                     if validateFood() {
                         // send food to database
                         withAnimation {
                             viewModel.addFood(
-                                name: name,
-                                cal: Int(cal) ?? 0,
-                                car: Int(car) ?? 0,
-                                pro: Int(pro) ?? 0,
-                                fat: Int(fat) ?? 0
-                                )
+                                    name: name,
+                                    cal: Int(cal) ?? 0,
+                                    car: Int(car) ?? 0,
+                                    pro: Int(pro) ?? 0,
+                                    fat: Int(fat) ?? 0
+                                    )
                         }
                         isAddFoodActive = false
                     } else {

@@ -12,27 +12,31 @@ struct AddLog: View {
     @EnvironmentObject private var viewModel: CoreDataViewModel
     
     @Binding var isAddLogActive: Bool
+    var day: Date = Date()
     @State private var foodSelection = Set<FoodEntity>()
     
     var body: some View {
         Text("What foods would you like to add?")
         NavigationView {
-            List(viewModel.foods, id: \.self, selection: $foodSelection) {
-                Text($0.name!)
+            List(selection: $foodSelection) {
+                ForEach(viewModel.foods, id: \.self) { item in
+                    Text(item.name!)
+                }
             }
             .toolbar {
                 EditButton()
             }
-        }
-        Text("Selected foods:")
-        List(Array(foodSelection)) {
-            Text($0.name!)
+            .listStyle(.inset)
         }
         Spacer()
         HStack {
             Text("Enter")
+                .padding()
+                .background(.green)
+                .cornerRadius(10)
+                .foregroundColor(.black)
                 .onTapGesture {
-                    viewModel.addLog(foods: foodSelection)
+                    viewModel.addLog(foods: foodSelection, date: day)
                     isAddLogActive = false
                 }
         }
@@ -48,6 +52,6 @@ struct AddLogBinding_Preview: View {
 
 struct AddLog_Previews: PreviewProvider {
     static var previews: some View {
-        AddLogBinding_Preview()
+        AddLogBinding_Preview().environmentObject(CoreDataViewModel.preview)
     }
 }

@@ -14,7 +14,7 @@ struct ViewLog: View {
         VStack(spacing: 0) {
             List {
                 ForEach(log.foodArr) { food in
-                    Navigator.navigate(.viewFood(food)) {
+                    NavigationLink(destination: ViewFood(food: food)) {
                         HStack {
                             Text(food.name!)
                             Spacer()

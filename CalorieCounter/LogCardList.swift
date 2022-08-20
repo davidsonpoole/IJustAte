@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LogCardList: View {
-    @Binding var todayPresent: Bool
     @EnvironmentObject private var viewModel: CoreDataViewModel
     
     @State private var selectedLog: LogEntity? = nil
+    @State private var isAddLogActive = false
     @State private var day = Date()
     var body: some View {
         VStack {
@@ -19,22 +19,24 @@ struct LogCardList: View {
                 .font(.title)
             Spacer()
             let selectedLog = viewModel.logs.last(where: {$0.timestamp!.get(.day) == day.get(.day)})
-            if day.isToday() {
-                if selectedLog != nil {
-                    ViewLog(log: selectedLog!)
-                        .onAppear {
-                            todayPresent = true
-                        }
-                } else {
-                    Text("No log for today yet")
-                        .padding(.bottom, 50)
+            if (selectedLog != nil && (selectedLog?.foods?.allObjects as! [FoodEntity]).count > 0) {
+                ViewLog(log: selectedLog!)
+                NavigationLink(destination: AddLog(isAddLogActive: $isAddLogActive, day: day), isActive: $isAddLogActive) {
+                    Text("Edit log")
+                        .padding()
+                        .background(.orange)
+                        .cornerRadius(10)
+                        .foregroundColor(.black)
                 }
             } else {
-                if selectedLog != nil {
-                    ViewLog(log: selectedLog!)
-                } else {
-                    Text("No log for this day")
-                        .padding(.bottom, 50)
+                Text("No log for " + (day.isToday() ? "today" : "this day") + " yet")
+                    .padding(.bottom, 50)
+                NavigationLink(destination: AddLog(isAddLogActive: $isAddLogActive, day: day), isActive: $isAddLogActive) {
+                    Text("Add log")
+                        .padding()
+                        .background(.green)
+                        .cornerRadius(10)
+                        .foregroundColor(.black)
                 }
             }
             HStack {

@@ -44,10 +44,18 @@ class CoreDataViewModel: ObservableObject {
         saveData()
     }
     
+    enum MyError: Error {
+        case runtimeError(String)
+    }
+    
     func addLog(foods: Set<FoodEntity>, date: Date = Date()) {
-        let newLog = LogEntity(context: container.viewContext)
-        newLog.timestamp = date
-        newLog.foods = foods as NSSet
+        // either add Log or update existing log
+        var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
+        if (log == nil) {
+            log = LogEntity(context: container.viewContext)
+        }
+        log!.timestamp = date
+        log!.foods = foods as NSSet
         saveData()
     }
     
@@ -92,6 +100,26 @@ class CoreDataViewModel: ObservableObject {
         fetchLogs()
         fetchUsers()
         fetchGoals()
+    }
+    
+    func clearLogs() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "LogEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try container.viewContext.execute(deleteRequest)
+        } catch let error {
+            print("Error deleting logs. \(error)")
+        }
+    }
+    
+    func clearFoods() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FoodEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try container.viewContext.execute(deleteRequest)
+        } catch let error {
+            print("Error deleting foods. \(error)")
+        }
     }
     
     func saveData() {
