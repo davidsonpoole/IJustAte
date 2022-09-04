@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import Intents
 
 class CoreDataViewModel: ObservableObject {
     static let shared = CoreDataViewModel()
@@ -13,6 +14,7 @@ class CoreDataViewModel: ObservableObject {
     static var preview: CoreDataViewModel = createPreviewData()
 
     let container: NSPersistentContainer
+        
     @Published var foods: [FoodEntity] = []
     @Published var logs: [LogEntity] = []
     @Published var users: [UserEntity] = []
@@ -20,8 +22,11 @@ class CoreDataViewModel: ObservableObject {
 
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "CalorieCounter")
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.davidsonpoole.caloriecounter")!.appendingPathComponent("CalorieCounter.sqlite")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        } else {
+            container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: url)]
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -34,13 +39,15 @@ class CoreDataViewModel: ObservableObject {
         fetchEverything()
     }
     
-    func addFood(name: String, cal: Int, car: Int, pro: Int, fat: Int) {
+    func addFood(name: String, cal: Double, car: Double, pro: Double, fat: Double) {
+//        print("Adding new food")
+//        print("Name: \(name)\nCal: \(cal)\nCar: \(car)\nPro: \(pro)\nFat: \(fat)")
         let newFood = FoodEntity(context: container.viewContext)
         newFood.name = name
-        newFood.cal = Int16(cal)
-        newFood.car = Int16(car)
-        newFood.pro = Int16(pro)
-        newFood.fat = Int16(fat)
+        newFood.cal = cal
+        newFood.car = car
+        newFood.pro = pro
+        newFood.fat = fat
         saveData()
     }
     
@@ -48,7 +55,7 @@ class CoreDataViewModel: ObservableObject {
         case runtimeError(String)
     }
     
-    func addLog(foods: Set<FoodEntity>, date: Date = Date()) {
+    func updateLog(foods: Set<FoodEntity>, date: Date = Date()) {
         // either add Log or update existing log
         var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
         if (log == nil) {
@@ -57,6 +64,50 @@ class CoreDataViewModel: ObservableObject {
         log!.timestamp = date
         log!.foods = foods as NSSet
         saveData()
+        
+        // donate to siri intents
+        let intent = AddFoodIntent()
+        intent.foods = foods.map { $0.name! }
+        intent.suggestedInvocationPhrase = "Add Food"
+        let interaction = INInteraction(intent: intent, response: nil)
+        interaction.donate { (error) in
+            if let error = error {
+                print("\n Error: \(error.localizedDescription)")
+            } else {
+                print("\n Donated AddFoodIntent")
+            }
+        }
+    }
+    
+    func addToLog(foods: Set<FoodEntity>, date: Date = Date()) {
+        var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
+        if (log == nil) {
+            log = LogEntity(context: container.viewContext)
+        }
+        log!.timestamp = date
+        var foodList = log!.foods?.allObjects as? [FoodEntity]
+        foodList?.append(contentsOf: foods)
+        log!.foods = Set<FoodEntity>(foodList!) as NSSet
+        saveData()
+        
+        // donate to siri intents
+        if (!foods.isEmpty) {
+            let intent = AddFoodIntent()
+            intent.foods = foods.map { $0.name! }
+            intent.suggestedInvocationPhrase = "Add Food"
+            let interaction = INInteraction(intent: intent, response: nil)
+            interaction.donate { (error) in
+                if let error = error {
+                    print("\n Error: \(error.localizedDescription)")
+                } else {
+                    print("\n Donated AddFoodIntent")
+                }
+            }
+        }
+    }
+    
+    func getFood(name: String) -> FoodEntity? {
+        return foods.last(where: { $0.name?.lowercased() == name.lowercased() })
     }
     
     func fetchFoods() {
@@ -96,6 +147,8 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func fetchEverything() {
+//        clearLogs()
+//        clearFoods()
         fetchFoods()
         fetchLogs()
         fetchUsers()
@@ -129,6 +182,39 @@ class CoreDataViewModel: ObservableObject {
         } catch let error {
             print("Error saving data. \(error)")
         }
+    }
+    
+    func saveAndExport(exportString: String) {
+        let exportFilePath = NSTemporaryDirectory() + "foods.csv"
+        let exportFileURL = NSURL(fileURLWithPath: exportFilePath)
+        FileManager.default.createFile(atPath: exportFilePath, contents: NSData() as Data)
+        var fileHandle: FileHandle? = nil
+        do {
+            fileHandle = try FileHandle(forWritingTo: exportFileURL as URL)
+        } catch {
+            print("Error with fileHandle")
+        }
+        
+        if fileHandle != nil {
+            do {
+                try fileHandle!.seekToEnd()
+                let csvData = exportString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+                fileHandle!.write(csvData!)
+                
+                try fileHandle!.close()
+            } catch {
+                print("Error seeking to end")
+            }
+        }
+    }
+    
+    func createExportString() -> String {
+        var str = ""
+        for food in foods {
+            let m = food.macro
+            str += "\(m.cal),\(m.car),\(m.pro),\(m.fat)\n"
+        }
+        return str
     }
     
     static func createPreviewData() -> CoreDataViewModel {

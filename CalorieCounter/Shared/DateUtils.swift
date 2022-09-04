@@ -33,3 +33,13 @@ let logFormatter: DateFormatter = {
     formatter.timeStyle = .medium
     return formatter
 }()
+
+extension String {
+    static func formatDouble(_ double: Double) -> String {
+        if (floor(double) == double) {
+            return String(Int(double))
+        } else {
+            return String(format: "%.1f", double)
+        }
+    }
+}

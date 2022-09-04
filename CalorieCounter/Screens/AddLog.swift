@@ -36,7 +36,7 @@ struct AddLog: View {
                 .cornerRadius(10)
                 .foregroundColor(.black)
                 .onTapGesture {
-                    viewModel.addLog(foods: foodSelection, date: day)
+                    viewModel.updateLog(foods: foodSelection, date: day)
                     isAddLogActive = false
                 }
         }

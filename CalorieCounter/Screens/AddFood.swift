@@ -40,10 +40,10 @@ struct AddFood: View {
                         withAnimation {
                             viewModel.addFood(
                                     name: name,
-                                    cal: Int(cal) ?? 0,
-                                    car: Int(car) ?? 0,
-                                    pro: Int(pro) ?? 0,
-                                    fat: Int(fat) ?? 0
+                                    cal: Double(cal) ?? 0,
+                                    car: Double(car) ?? 0,
+                                    pro: Double(pro) ?? 0,
+                                    fat: Double(fat) ?? 0
                                     )
                         }
                         isAddFoodActive = false

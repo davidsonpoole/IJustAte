@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ViewLog: View {
-    var log: LogEntity
+    @ObservedObject var log: LogEntity
     
     var body: some View {
         VStack(spacing: 0) {
@@ -18,7 +18,7 @@ struct ViewLog: View {
                         HStack {
                             Text(food.name!)
                             Spacer()
-                            Text("\(food.cal)")
+                            Text(String.formatDouble(food.cal))
                                 .padding([.trailing], 20)
                         }
                     }
@@ -51,10 +51,10 @@ struct Totals: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .topLeading)
                 VStack(alignment: .trailing) {
-                    Text("\(totals.cal)")
-                    Text("\(totals.car)")
-                    Text("\(totals.pro)")
-                    Text("\(totals.fat)")
+                    Text(String.formatDouble(totals.cal))
+                    Text(String.formatDouble(totals.car))
+                    Text(String.formatDouble(totals.pro))
+                    Text(String.formatDouble(totals.fat))
                 }
                 .frame(maxHeight: .infinity, alignment: .topLeading)
             }

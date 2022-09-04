@@ -8,10 +8,10 @@
 import Foundation
 
 struct Macro {
-    var cal: Int
-    var car: Int
-    var pro: Int
-    var fat: Int
+    var cal: Double
+    var car: Double
+    var pro: Double
+    var fat: Double
     
     static var empty = Self.init(cal: 0, car: 0, pro: 0, fat: 0)
     
@@ -36,6 +36,6 @@ extension LogEntity {
 
 extension FoodEntity {
     var macro: Macro {
-        return Macro(cal: Int(cal), car: Int(car), pro: Int(pro), fat: Int(fat))
+        return Macro(cal: cal, car: car, pro: pro, fat: fat)
     }
 }
