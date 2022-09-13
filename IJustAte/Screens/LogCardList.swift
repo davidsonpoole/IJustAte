@@ -18,7 +18,7 @@ struct LogCardList: View {
             Text(verbatim: "\(day.get(.month))/\(day.get(.day))/\(day.get(.year))")
                 .font(.title)
             Spacer()
-            let selectedLog = viewModel.logs.last(where: {$0.timestamp!.get(.day) == day.get(.day)})
+            let selectedLog = viewModel.logs.last(where: {$0.timestamp?.get(.day) == day.get(.day)})
             if (selectedLog != nil && (selectedLog?.foods?.allObjects as! [FoodEntity]).count > 0) {
                 ViewLog(log: selectedLog!)
                 NavigationLink(destination: AddLog(isAddLogActive: $isAddLogActive, day: day), isActive: $isAddLogActive) {

@@ -20,7 +20,7 @@ struct AddLog: View {
         NavigationView {
             List(selection: $foodSelection) {
                 ForEach(viewModel.foods, id: \.self) { item in
-                    Text(item.name!)
+                    Text(item.name ?? "")
                 }
             }
             .toolbar {

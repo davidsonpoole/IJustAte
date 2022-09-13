@@ -1,6 +1,6 @@
 //
-//  CalorieCounterApp.swift
-//  CalorieCounter
+//  IJustAteApp.swift
+//  IJustAte
 //
 //  Created by Davidson Poole on 6/17/22.
 //
@@ -9,10 +9,9 @@ import SwiftUI
 import Intents
 
 @main
-struct CalorieCounterApp: App {
+struct IJustAteApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject var viewModel: CoreDataViewModel = CoreDataViewModel.shared
-
     var body: some Scene {
         WindowGroup {
             ContentView()

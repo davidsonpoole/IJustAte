@@ -10,11 +10,20 @@ import SwiftUI
 struct HomeView: View {
     @Binding var user: UserEntity?
     @State private var isAddFoodActive = false
+    @State var refresh = UUID()
+    @EnvironmentObject private var viewModel: CoreDataViewModel
+    
+//    var didRemoteChange = NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange).receive(on: DispatchQueue.main)
     
     var body: some View {
         NavigationView {
             LogCardList()
                 .padding([.bottom], 20)
+//                .onReceive(self.didRemoteChange, perform: { _ in
+//                    print("Received notification")
+//                    viewModel.reloadContainer()
+//                    self.refresh = UUID()
+//                })
             .toolbar {
                 NavigationLink(destination: AddFood(isAddFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
                     Text("Add food")

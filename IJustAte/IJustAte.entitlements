@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.davidsonpoole.caloriecounter</string>
+		<string>group.com.davidsonpoole.ijustate</string>
 	</array>
 </dict>
 </plist>

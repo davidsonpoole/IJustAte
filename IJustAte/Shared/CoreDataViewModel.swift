@@ -10,34 +10,23 @@ import Intents
 
 class CoreDataViewModel: ObservableObject {
     static let shared = CoreDataViewModel()
-
     static var preview: CoreDataViewModel = createPreviewData()
 
-    let container: NSPersistentContainer
+    var container: PersistentContainer
         
     @Published var foods: [FoodEntity] = []
     @Published var logs: [LogEntity] = []
     @Published var users: [UserEntity] = []
     @Published var goals: [GoalEntity] = []
 
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "CalorieCounter")
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.davidsonpoole.caloriecounter")!.appendingPathComponent("CalorieCounter.sqlite")
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        } else {
-            container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: url)]
-        }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Error loading Core Data. \(error)")
-            } else {
-                print("Successfully loaded Core Data")
-            }
-        })
-        container.viewContext.automaticallyMergesChangesFromParent = true
+    init() {
+        container = PersistentContainer.shared
+        container.setup()
         fetchEverything()
     }
+    
+    // ------ Start of Data Controller commands --------- //
+        
     
     func addFood(name: String, cal: Double, car: Double, pro: Double, fat: Double) {
 //        print("Adding new food")
@@ -55,6 +44,12 @@ class CoreDataViewModel: ObservableObject {
         case runtimeError(String)
     }
     
+    func reloadContainer() {
+        print("here")
+        //container.viewContext.reset()
+        fetchEverything()
+    }
+    
     func updateLog(foods: Set<FoodEntity>, date: Date = Date()) {
         // either add Log or update existing log
         var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
@@ -67,7 +62,13 @@ class CoreDataViewModel: ObservableObject {
         
         // donate to siri intents
         let intent = AddFoodIntent()
-        intent.foods = foods.map { $0.name! }
+        intent.foods = foods.map {
+            guard let name = $0.name else {
+                print("ERROR - Food has no name")
+                return ""
+            }
+            return name
+        }
         intent.suggestedInvocationPhrase = "Add Food"
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate { (error) in
@@ -93,7 +94,7 @@ class CoreDataViewModel: ObservableObject {
         // donate to siri intents
         if (!foods.isEmpty) {
             let intent = AddFoodIntent()
-            intent.foods = foods.map { $0.name! }
+            intent.foods = foods.map { $0.name ?? "" }
             intent.suggestedInvocationPhrase = "Add Food"
             let interaction = INInteraction(intent: intent, response: nil)
             interaction.donate { (error) in
@@ -149,6 +150,7 @@ class CoreDataViewModel: ObservableObject {
     func fetchEverything() {
 //        clearLogs()
 //        clearFoods()
+        //container.viewContext.reset()
         fetchFoods()
         fetchLogs()
         fetchUsers()
@@ -176,11 +178,14 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func saveData() {
-        do {
-            try container.viewContext.save()
-            fetchEverything()
-        } catch let error {
-            print("Error saving data. \(error)")
+        let context = container.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+                fetchEverything()
+            } catch let error {
+                print("Error saving data. \(error)")
+            }
         }
     }
     
@@ -218,7 +223,7 @@ class CoreDataViewModel: ObservableObject {
     }
     
     static func createPreviewData() -> CoreDataViewModel {
-        let result = CoreDataViewModel(inMemory: true)
+        let result = CoreDataViewModel()
         let viewContext = result.container.viewContext
         var foodArr = [FoodEntity]()
         for i in 0..<5 {
@@ -246,5 +251,15 @@ class CoreDataViewModel: ObservableObject {
             fatalError("Error in preview \(nsError), \(nsError.userInfo)")
         }
         return result
+    }
+}
+
+public extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Shared file container could not be created.")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }

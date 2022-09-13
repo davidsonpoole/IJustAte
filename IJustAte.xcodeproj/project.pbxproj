@@ -10,21 +10,25 @@
 		AC10B7BA2892C731000CFDE1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7B92892C731000CFDE1 /* Button.swift */; };
 		AC10B7BC2892C763000CFDE1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* DateUtils.swift */; };
 		AC10B7BE2892C7A6000CFDE1 /* LogCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */; };
-		AC9D57D2285D0C8B007956D2 /* CalorieCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57D1285D0C8B007956D2 /* CalorieCounterApp.swift */; };
+		AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */; };
+		AC47246C28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
+		AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
+		AC47246E28D1248200076E74 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */; };
+		AC9D57D2285D0C8B007956D2 /* IJustAteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57D1285D0C8B007956D2 /* IJustAteApp.swift */; };
 		AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57D3285D0C8B007956D2 /* ContentView.swift */; };
 		AC9D57D6285D0C8D007956D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D5285D0C8D007956D2 /* Assets.xcassets */; };
 		AC9D57D9285D0C8D007956D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */; };
 		AC9D57DB285D0C8D007956D2 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */; };
-		AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */; };
+		AC9D57DE285D0C8D007956D2 /* IJustAte.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */; };
 		ACBA874F2880E26000474639 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
 		ACBB9D1928BBA19F00A36955 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBB9D1828BBA19F00A36955 /* Intents.framework */; };
-		ACBB9D2028BBA19F00A36955 /* CalorieCounterIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ACBB9D1628BBA19F00A36955 /* CalorieCounterIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */; };
 		ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */; };
 		ACD4D88028C285E900D97F61 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */; };
-		ACD4D88128C28A1000D97F61 /* CalorieCounter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */; };
+		ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */; };
 		ACD4D88228C28A2300D97F61 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* DateUtils.swift */; };
 		ACD4D88328C28A2E00D97F61 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
 		ACF060862881A2FC002D3017 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060852881A2FC002D3017 /* LoginView.swift */; };
@@ -55,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				ACBB9D2028BBA19F00A36955 /* CalorieCounterIntent.appex in Embed App Extensions */,
+				ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,20 +70,22 @@
 		AC10B7B92892C731000CFDE1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		AC10B7BB2892C763000CFDE1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCardList.swift; sourceTree = "<group>"; };
-		AC9D57CE285D0C8B007956D2 /* CalorieCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC9D57D1285D0C8B007956D2 /* CalorieCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCounterApp.swift; sourceTree = "<group>"; };
+		AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryObserver.swift; sourceTree = "<group>"; };
+		AC47246B28D122E100076E74 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
+		AC9D57CE285D0C8B007956D2 /* IJustAte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IJustAte.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9D57D1285D0C8B007956D2 /* IJustAteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJustAteApp.swift; sourceTree = "<group>"; };
 		AC9D57D3285D0C8B007956D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC9D57D5285D0C8D007956D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
-		ACADD67C28BB9E1700E6531C /* CalorieCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalorieCounter.entitlements; sourceTree = "<group>"; };
+		ACADD67C28BB9E1700E6531C /* IJustAte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IJustAte.entitlements; sourceTree = "<group>"; };
 		ACBA874E2880E26000474639 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
-		ACBB9D1628BBA19F00A36955 /* CalorieCounterIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalorieCounterIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IJustAteIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBB9D1828BBA19F00A36955 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		ACBB9D1D28BBA19F00A36955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD4D87528C269D400D97F61 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
-		ACD4D87828C2800900D97F61 /* CalorieCounterIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalorieCounterIntent.entitlements; sourceTree = "<group>"; };
+		ACD4D87828C2800900D97F61 /* IJustAteIntent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IJustAteIntent.entitlements; sourceTree = "<group>"; };
 		ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		ACF060852881A2FC002D3017 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ACF060872881A3F0002D3017 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -115,8 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				ACD4D87528C269D400D97F61 /* Intents.intentdefinition */,
-				AC9D57D0285D0C8B007956D2 /* CalorieCounter */,
-				ACBB9D1A28BBA19F00A36955 /* CalorieCounterIntent */,
+				AC9D57D0285D0C8B007956D2 /* IJustAte */,
+				ACBB9D1A28BBA19F00A36955 /* IJustAteIntent */,
 				ACBB9D1728BBA19F00A36955 /* Frameworks */,
 				AC9D57CF285D0C8B007956D2 /* Products */,
 			);
@@ -125,25 +131,25 @@
 		AC9D57CF285D0C8B007956D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC9D57CE285D0C8B007956D2 /* CalorieCounter.app */,
-				ACBB9D1628BBA19F00A36955 /* CalorieCounterIntent.appex */,
+				AC9D57CE285D0C8B007956D2 /* IJustAte.app */,
+				ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC9D57D0285D0C8B007956D2 /* CalorieCounter */ = {
+		AC9D57D0285D0C8B007956D2 /* IJustAte */ = {
 			isa = PBXGroup;
 			children = (
 				ACD4D88428C28A4600D97F61 /* Shared */,
-				ACADD67C28BB9E1700E6531C /* CalorieCounter.entitlements */,
+				ACADD67C28BB9E1700E6531C /* IJustAte.entitlements */,
 				ACF25D8E287E01A500D7BFF2 /* Screens */,
-				AC9D57D1285D0C8B007956D2 /* CalorieCounterApp.swift */,
+				AC9D57D1285D0C8B007956D2 /* IJustAteApp.swift */,
 				AC9D57D5285D0C8D007956D2 /* Assets.xcassets */,
 				AC10B7B92892C731000CFDE1 /* Button.swift */,
-				AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */,
+				AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */,
 				AC9D57D7285D0C8D007956D2 /* Preview Content */,
 			);
-			path = CalorieCounter;
+			path = IJustAte;
 			sourceTree = "<group>";
 		};
 		AC9D57D7285D0C8D007956D2 /* Preview Content */ = {
@@ -165,14 +171,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		ACBB9D1A28BBA19F00A36955 /* CalorieCounterIntent */ = {
+		ACBB9D1A28BBA19F00A36955 /* IJustAteIntent */ = {
 			isa = PBXGroup;
 			children = (
-				ACD4D87828C2800900D97F61 /* CalorieCounterIntent.entitlements */,
+				ACD4D87828C2800900D97F61 /* IJustAteIntent.entitlements */,
 				ACBB9D1D28BBA19F00A36955 /* Info.plist */,
 				ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */,
 			);
-			path = CalorieCounterIntent;
+			path = IJustAteIntent;
 			sourceTree = "<group>";
 		};
 		ACD4D88428C28A4600D97F61 /* Shared */ = {
@@ -181,6 +187,8 @@
 				AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */,
 				AC10B7BB2892C763000CFDE1 /* DateUtils.swift */,
 				ACBA874E2880E26000474639 /* Macro.swift */,
+				AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */,
+				AC47246B28D122E100076E74 /* PersistentContainer.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -203,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC9D57CD285D0C8B007956D2 /* CalorieCounter */ = {
+		AC9D57CD285D0C8B007956D2 /* IJustAte */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC9D57E1285D0C8D007956D2 /* Build configuration list for PBXNativeTarget "CalorieCounter" */;
+			buildConfigurationList = AC9D57E1285D0C8D007956D2 /* Build configuration list for PBXNativeTarget "IJustAte" */;
 			buildPhases = (
 				AC9D57CA285D0C8B007956D2 /* Sources */,
 				AC9D57CB285D0C8B007956D2 /* Frameworks */,
@@ -217,16 +225,16 @@
 			dependencies = (
 				ACBB9D1F28BBA19F00A36955 /* PBXTargetDependency */,
 			);
-			name = CalorieCounter;
+			name = IJustAte;
 			packageProductDependencies = (
 			);
 			productName = CalorieCounter;
-			productReference = AC9D57CE285D0C8B007956D2 /* CalorieCounter.app */;
+			productReference = AC9D57CE285D0C8B007956D2 /* IJustAte.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ACBB9D1528BBA19F00A36955 /* CalorieCounterIntent */ = {
+		ACBB9D1528BBA19F00A36955 /* IJustAteIntent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ACBB9D2128BBA19F00A36955 /* Build configuration list for PBXNativeTarget "CalorieCounterIntent" */;
+			buildConfigurationList = ACBB9D2128BBA19F00A36955 /* Build configuration list for PBXNativeTarget "IJustAteIntent" */;
 			buildPhases = (
 				ACBB9D1228BBA19F00A36955 /* Sources */,
 				ACBB9D1328BBA19F00A36955 /* Frameworks */,
@@ -236,9 +244,9 @@
 			);
 			dependencies = (
 			);
-			name = CalorieCounterIntent;
+			name = IJustAteIntent;
 			productName = CalorieCounterIntent;
-			productReference = ACBB9D1628BBA19F00A36955 /* CalorieCounterIntent.appex */;
+			productReference = ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +267,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC9D57C9285D0C8B007956D2 /* Build configuration list for PBXProject "CalorieCounter" */;
+			buildConfigurationList = AC9D57C9285D0C8B007956D2 /* Build configuration list for PBXProject "IJustAte" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -274,8 +282,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC9D57CD285D0C8B007956D2 /* CalorieCounter */,
-				ACBB9D1528BBA19F00A36955 /* CalorieCounterIntent */,
+				AC9D57CD285D0C8B007956D2 /* IJustAte */,
+				ACBB9D1528BBA19F00A36955 /* IJustAteIntent */,
 			);
 		};
 /* End PBXProject section */
@@ -313,16 +321,18 @@
 				ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */,
 				ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */,
 				ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */,
+				AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */,
 				AC9D57DB285D0C8D007956D2 /* CoreDataViewModel.swift in Sources */,
+				AC47246C28D122E100076E74 /* PersistentContainer.swift in Sources */,
 				AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */,
 				ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */,
 				ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */,
-				AC9D57DE285D0C8D007956D2 /* CalorieCounter.xcdatamodeld in Sources */,
+				AC9D57DE285D0C8D007956D2 /* IJustAte.xcdatamodeld in Sources */,
 				AC10B7BA2892C731000CFDE1 /* Button.swift in Sources */,
 				ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */,
 				ACF060862881A2FC002D3017 /* LoginView.swift in Sources */,
 				ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */,
-				AC9D57D2285D0C8B007956D2 /* CalorieCounterApp.swift in Sources */,
+				AC9D57D2285D0C8B007956D2 /* IJustAteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +343,9 @@
 				ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */,
 				ACD4D88028C285E900D97F61 /* CoreDataViewModel.swift in Sources */,
 				ACD4D88228C28A2300D97F61 /* DateUtils.swift in Sources */,
-				ACD4D88128C28A1000D97F61 /* CalorieCounter.xcdatamodeld in Sources */,
+				ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */,
+				AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */,
+				AC47246E28D1248200076E74 /* PersistentHistoryObserver.swift in Sources */,
 				ACD4D88328C28A2E00D97F61 /* Macro.swift in Sources */,
 				ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */,
 			);
@@ -344,7 +356,7 @@
 /* Begin PBXTargetDependency section */
 		ACBB9D1F28BBA19F00A36955 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ACBB9D1528BBA19F00A36955 /* CalorieCounterIntent */;
+			target = ACBB9D1528BBA19F00A36955 /* IJustAteIntent */;
 			targetProxy = ACBB9D1E28BBA19F00A36955 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -470,15 +482,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CalorieCounter/CalorieCounter.entitlements;
+				CODE_SIGN_ENTITLEMENTS = IJustAte/IJustAte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CalorieCounter/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"IJustAte/Preview Content\"";
 				DEVELOPMENT_TEAM = CDDM35J57H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalorieCounter/Info.plist;
+				INFOPLIST_FILE = IJustAte/Info.plist;
 				INFOPLIST_KEY_NSSiriUsageDescription = "Siri support is used to log new foods.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -490,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.CalorieCounter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.IJustAte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -505,15 +517,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CalorieCounter/CalorieCounter.entitlements;
+				CODE_SIGN_ENTITLEMENTS = IJustAte/IJustAte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CalorieCounter/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"IJustAte/Preview Content\"";
 				DEVELOPMENT_TEAM = CDDM35J57H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalorieCounter/Info.plist;
+				INFOPLIST_FILE = IJustAte/Info.plist;
 				INFOPLIST_KEY_NSSiriUsageDescription = "Siri support is used to log new foods.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -525,7 +537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.CalorieCounter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.IJustAte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -537,14 +549,14 @@
 		ACBB9D2228BBA19F00A36955 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = CalorieCounterIntent/CalorieCounterIntent.entitlements;
+				CODE_SIGN_ENTITLEMENTS = IJustAteIntent/IJustAteIntent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CDDM35J57H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalorieCounterIntent/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalorieCounterIntent;
+				INFOPLIST_FILE = IJustAteIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IJustAteIntent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INTENTS_CODEGEN_LANGUAGE = Swift;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -553,7 +565,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.CalorieCounter.CalorieCounterIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.IJustAte.IJustAteIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -565,14 +577,14 @@
 		ACBB9D2328BBA19F00A36955 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = CalorieCounterIntent/CalorieCounterIntent.entitlements;
+				CODE_SIGN_ENTITLEMENTS = IJustAteIntent/IJustAteIntent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CDDM35J57H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalorieCounterIntent/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalorieCounterIntent;
+				INFOPLIST_FILE = IJustAteIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IJustAteIntent;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INTENTS_CODEGEN_LANGUAGE = Swift;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -581,7 +593,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.CalorieCounter.CalorieCounterIntent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidsonpoole.IJustAte.IJustAteIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -593,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC9D57C9285D0C8B007956D2 /* Build configuration list for PBXProject "CalorieCounter" */ = {
+		AC9D57C9285D0C8B007956D2 /* Build configuration list for PBXProject "IJustAte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC9D57DF285D0C8D007956D2 /* Debug */,
@@ -602,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC9D57E1285D0C8D007956D2 /* Build configuration list for PBXNativeTarget "CalorieCounter" */ = {
+		AC9D57E1285D0C8D007956D2 /* Build configuration list for PBXNativeTarget "IJustAte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC9D57E2285D0C8D007956D2 /* Debug */,
@@ -611,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACBB9D2128BBA19F00A36955 /* Build configuration list for PBXNativeTarget "CalorieCounterIntent" */ = {
+		ACBB9D2128BBA19F00A36955 /* Build configuration list for PBXNativeTarget "IJustAteIntent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ACBB9D2228BBA19F00A36955 /* Debug */,
@@ -623,13 +635,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AC9D57DC285D0C8D007956D2 /* CalorieCounter.xcdatamodeld */ = {
+		AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */,
 			);
 			currentVersion = AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */;
-			path = CalorieCounter.xcdatamodeld;
+			path = IJustAte.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
