@@ -13,6 +13,8 @@ public enum AppTarget: String, CaseIterable {
     case shareExtension
 }
 
+var DEBUG = false
+
 public final class PersistentHistoryObserver {
     private let target: AppTarget
     private let persistentContainer: NSPersistentContainer
@@ -35,7 +37,6 @@ public final class PersistentHistoryObserver {
     }
     
     @objc private func processStoreRemoteChanges(_ notification: Notification) {
-        print("Received notification")
         historyQueue.addOperation { [weak self] in
             self?.processPersistentHistory()
         }
@@ -69,11 +70,11 @@ struct PersistentHistoryMerger {
         let history = try fetcher.fetch()
         
         guard !history.isEmpty else {
-            print("No history transactions found to merge for target \(currentTarget)")
+            if DEBUG { print("No history transactions found to merge for target \(currentTarget)") }
             return
         }
         
-        print("Merging \(history.count) persistent history transactions for target \(currentTarget)")
+        if DEBUG { print("Merging \(history.count) persistent history transactions for target \(currentTarget)") }
         
         history.merge(into: backgroundContext)
         
@@ -134,12 +135,12 @@ struct PersistentHistoryCleaner {
     // Deletes the transactions that have been merged already
     func clean() throws {
         guard let timestamp = userDefaults.lastCommonTransactionTimestamp(in: targets) else {
-            print("Cancelling deletions as there is no common transaction timestamp")
+            if DEBUG { print("Cancelling deletions as there is no common transaction timestamp") }
             return
         }
         
         let deleteHistoryRequest = NSPersistentHistoryChangeRequest.deleteHistory(before: timestamp)
-        print("Deleting persistent history using common timestamp \(timestamp)")
+        if DEBUG { print("Deleting persistent history using common timestamp \(timestamp)") }
         try context.execute(deleteHistoryRequest)
         
         targets.forEach { target in

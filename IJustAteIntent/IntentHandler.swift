@@ -16,7 +16,6 @@ class IntentHandler: INExtension, AddFoodIntentHandling {
         guard intent is AddFoodIntent else {
             fatalError("Unknown intent type: \(intent)")
         }
-        print("got to handler")
         return self
     }
     
@@ -25,7 +24,6 @@ class IntentHandler: INExtension, AddFoodIntentHandling {
             completion(AddFoodIntentResponse(code: .failure, userActivity: nil))
             return
         }
-        print("handle method")
         
         var foodEntities = [FoodEntity]()
         var foodSuccesses = [String]()
