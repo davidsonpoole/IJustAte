@@ -25,12 +25,12 @@ struct Macro {
 }
 
 extension LogEntity {
-    var foodArr: [FoodEntity] {
-        return foods?.allObjects as? [FoodEntity] ?? [FoodEntity]()
+    var foodArr: [LoggedFoodEntity] {
+        return foods?.allObjects as? [LoggedFoodEntity] ?? [LoggedFoodEntity]()
     }
     
     var totals: Macro {
-        foodArr.reduce(Macro.empty) { $0 + $1.macro }
+        return foodArr.reduce(Macro.empty) { $0 + $1.food!.macro }
     }
 }
 

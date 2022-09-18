@@ -11,9 +11,9 @@
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>21G83</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>13F100</string>
+	<string>14A309</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>13.4.1</string>
+	<string>14.0</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -26,15 +26,15 @@
 			<key>INIntentDescriptionID</key>
 			<string>9JsB7s</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>2</integer>
+			<integer>3</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>foods</key>
+				<key>food</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Add ${foods} to log</string>
+					<string>Add ${food} to log</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>i8iZ1h</string>
 				</dict>
@@ -43,14 +43,14 @@
 			<string>AddFood</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>foods</key>
+				<key>food</key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Add ${foods} to log</string>
+					<string>Add ${food} to log</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>wf5WsY</string>
 				</dict>
@@ -61,7 +61,7 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>Foods</string>
+					<string>Food</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>KmNvhR</string>
 					<key>INIntentParameterDisplayPriority</key>
@@ -74,7 +74,7 @@
 						<string>R47xXd</string>
 					</dict>
 					<key>INIntentParameterName</key>
-					<string>foods</string>
+					<string>food</string>
 					<key>INIntentParameterPromptDialogs</key>
 					<array>
 						<dict>
@@ -94,12 +94,10 @@
 							<string>Primary</string>
 						</dict>
 					</array>
-					<key>INIntentParameterSupportsMultipleValues</key>
-					<true/>
 					<key>INIntentParameterSupportsResolution</key>
 					<true/>
 					<key>INIntentParameterTag</key>
-					<integer>2</integer>
+					<integer>3</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
 				</dict>
@@ -110,7 +108,7 @@
 				<array>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Successfully added ${foods} to today's log</string>
+						<string>Successfully added ${food} to today's log</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>3Cn03G</string>
 						<key>INIntentResponseCodeName</key>
@@ -120,7 +118,7 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>Failed to add ${foods} to today's log</string>
+						<string>Failed to add ${food} to today's log</string>
 						<key>INIntentResponseCodeFormatStringID</key>
 						<string>qapAdY</string>
 						<key>INIntentResponseCodeName</key>
@@ -128,22 +126,20 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>2</integer>
+				<integer>3</integer>
 				<key>INIntentResponseParameters</key>
 				<array>
 					<dict>
 						<key>INIntentResponseParameterDisplayName</key>
-						<string>Foods</string>
+						<string>Food</string>
 						<key>INIntentResponseParameterDisplayNameID</key>
 						<string>dfA4Hp</string>
 						<key>INIntentResponseParameterDisplayPriority</key>
 						<integer>1</integer>
 						<key>INIntentResponseParameterName</key>
-						<string>foods</string>
-						<key>INIntentResponseParameterSupportsMultipleValues</key>
-						<true/>
+						<string>food</string>
 						<key>INIntentResponseParameterTag</key>
-						<integer>2</integer>
+						<integer>3</integer>
 						<key>INIntentResponseParameterType</key>
 						<string>String</string>
 					</dict>

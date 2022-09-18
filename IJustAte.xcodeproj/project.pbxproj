@@ -22,7 +22,7 @@
 		AC9D57DE285D0C8D007956D2 /* IJustAte.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */; };
 		ACBA874F2880E26000474639 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
 		ACBB9D1928BBA19F00A36955 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBB9D1828BBA19F00A36955 /* Intents.framework */; };
-		ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */; };
@@ -53,15 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		ACBB9D2428BBA19F00A36955 /* Embed App Extensions */ = {
+		ACBB9D2428BBA19F00A36955 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed App Extensions */,
+				ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -218,7 +218,7 @@
 				AC9D57CA285D0C8B007956D2 /* Sources */,
 				AC9D57CB285D0C8B007956D2 /* Frameworks */,
 				AC9D57CC285D0C8B007956D2 /* Resources */,
-				ACBB9D2428BBA19F00A36955 /* Embed App Extensions */,
+				ACBB9D2428BBA19F00A36955 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -257,7 +257,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					AC9D57CD285D0C8B007956D2 = {
 						CreatedOnToolsVersion = 13.4.1;

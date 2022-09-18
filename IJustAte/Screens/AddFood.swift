@@ -38,7 +38,7 @@ struct AddFood: View {
                     if validateFood() {
                         // send food to database
                         withAnimation {
-                            viewModel.addFood(
+                            viewModel.createFood(
                                     name: name,
                                     cal: Double(cal) ?? 0,
                                     car: Double(car) ?? 0,

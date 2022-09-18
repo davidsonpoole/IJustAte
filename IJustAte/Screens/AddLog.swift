@@ -13,33 +13,35 @@ struct AddLog: View {
     
     @Binding var isAddLogActive: Bool
     var day: Date = Date()
-    @State private var foodSelection = Set<FoodEntity>()
     
     var body: some View {
         Text("What foods would you like to add?")
         NavigationView {
-            List(selection: $foodSelection) {
+            List {
                 ForEach(viewModel.foods, id: \.self) { item in
                     Text(item.name ?? "")
+                        .onTapGesture {
+                            // highlight
+                            //add to selection
+                            viewModel.addToLog(food: item)
+                            
+                        }
                 }
-            }
-            .toolbar {
-                EditButton()
             }
             .listStyle(.inset)
         }
-        Spacer()
-        HStack {
-            Text("Enter")
-                .padding()
-                .background(.green)
-                .cornerRadius(10)
-                .foregroundColor(.black)
-                .onTapGesture {
-                    viewModel.updateLog(foods: foodSelection, date: day)
-                    isAddLogActive = false
-                }
-        }
+//        Spacer()
+//        HStack {
+//            Text("Enter")
+//                .padding()
+//                .background(.green)
+//                .cornerRadius(10)
+//                .foregroundColor(.black)
+//                .onTapGesture {
+//                    viewModel.updateLog(foods: foodSelection, date: day)
+//                    isAddLogActive = false
+//                }
+//        }
     }
 }
 

@@ -15,22 +15,23 @@ class CoreDataViewModel: ObservableObject {
     var container: PersistentContainer
         
     @Published var foods: [FoodEntity] = []
+    @Published var loggedFoods: [LoggedFoodEntity] = []
     @Published var logs: [LogEntity] = []
     @Published var users: [UserEntity] = []
     @Published var goals: [GoalEntity] = []
 
-    init() {
+    init(isPreview: Bool = false) {
         container = PersistentContainer.shared
-        container.setup()
-        fetchEverything()
+        if (!isPreview) {
+            container.setup()
+            fetchEverything()
+        }
     }
     
     // ------ Start of Data Controller commands --------- //
         
     
-    func addFood(name: String, cal: Double, car: Double, pro: Double, fat: Double) {
-//        print("Adding new food")
-//        print("Name: \(name)\nCal: \(cal)\nCar: \(car)\nPro: \(pro)\nFat: \(fat)")
+    func createFood(name: String, cal: Double, car: Double, pro: Double, fat: Double) {
         let newFood = FoodEntity(context: container.viewContext)
         newFood.name = name
         newFood.cal = cal
@@ -44,31 +45,23 @@ class CoreDataViewModel: ObservableObject {
         case runtimeError(String)
     }
     
-    func reloadContainer() {
-        print("here")
-        //container.viewContext.reset()
-        fetchEverything()
-    }
-    
-    func updateLog(foods: Set<FoodEntity>, date: Date = Date()) {
-        // either add Log or update existing log
+    func addToLog(food: FoodEntity, date: Date = Date()) {
         var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
         if (log == nil) {
             log = LogEntity(context: container.viewContext)
         }
         log!.timestamp = date
-        log!.foods = foods as NSSet
+        var foodList = log!.foods?.allObjects as? [LoggedFoodEntity]
+        let loggedFood = LoggedFoodEntity(context: container.viewContext)
+        loggedFood.timestamp = date
+        loggedFood.food = food
+        foodList?.append(loggedFood)
+        log!.foods = Set<LoggedFoodEntity>(foodList!) as NSSet
         saveData()
         
         // donate to siri intents
         let intent = AddFoodIntent()
-        intent.foods = foods.map {
-            guard let name = $0.name else {
-                print("ERROR - Food has no name")
-                return ""
-            }
-            return name
-        }
+        intent.food = food.name ?? ""
         intent.suggestedInvocationPhrase = "Add Food"
         let interaction = INInteraction(intent: intent, response: nil)
         interaction.donate { (error) in
@@ -76,33 +69,6 @@ class CoreDataViewModel: ObservableObject {
                 print("\n Error: \(error.localizedDescription)")
             } else {
                 print("\n Donated AddFoodIntent")
-            }
-        }
-    }
-    
-    func addToLog(foods: Set<FoodEntity>, date: Date = Date()) {
-        var log = logs.last(where: { $0.timestamp?.get(.day) == date.get(.day) })
-        if (log == nil) {
-            log = LogEntity(context: container.viewContext)
-        }
-        log!.timestamp = date
-        var foodList = log!.foods?.allObjects as? [FoodEntity]
-        foodList?.append(contentsOf: foods)
-        log!.foods = Set<FoodEntity>(foodList!) as NSSet
-        saveData()
-        
-        // donate to siri intents
-        if (!foods.isEmpty) {
-            let intent = AddFoodIntent()
-            intent.foods = foods.map { $0.name ?? "" }
-            intent.suggestedInvocationPhrase = "Add Food"
-            let interaction = INInteraction(intent: intent, response: nil)
-            interaction.donate { (error) in
-                if let error = error {
-                    print("\n Error: \(error.localizedDescription)")
-                } else {
-                    print("\n Donated AddFoodIntent")
-                }
             }
         }
     }
@@ -148,9 +114,6 @@ class CoreDataViewModel: ObservableObject {
     }
     
     func fetchEverything() {
-//        clearLogs()
-//        clearFoods()
-        //container.viewContext.reset()
         fetchFoods()
         fetchLogs()
         fetchUsers()
@@ -177,12 +140,23 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
+    func clearLoggedFoods() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "LoggedFoodEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try container.viewContext.execute(deleteRequest)
+        } catch let error {
+            print("Error deleting foods. \(error)")
+        }
+    }
+    
     func saveData() {
         let context = container.viewContext
         if context.hasChanges {
             do {
                 try context.save()
                 fetchEverything()
+                print("saved data")
             } catch let error {
                 print("Error saving data. \(error)")
             }
@@ -223,7 +197,7 @@ class CoreDataViewModel: ObservableObject {
     }
     
     static func createPreviewData() -> CoreDataViewModel {
-        let result = CoreDataViewModel()
+        let result = CoreDataViewModel(isPreview: true)
         let viewContext = result.container.viewContext
         var foodArr = [FoodEntity]()
         for i in 0..<5 {
@@ -233,7 +207,13 @@ class CoreDataViewModel: ObservableObject {
         }
         let newLog = LogEntity(context: viewContext)
         newLog.timestamp = Date()
-        newLog.foods = Set(foodArr) as NSSet
+        var loggedFoods: [LoggedFoodEntity] = foodArr.map {
+            var newLoggedFood = LoggedFoodEntity(context: viewContext)
+            newLoggedFood.timestamp = Date()
+            newLoggedFood.food = $0
+            return newLoggedFood
+        }
+        newLog.foods = Set(loggedFoods) as NSSet
         let newGoal = GoalEntity(context: viewContext)
         newGoal.cal = 2000
         newGoal.car = 500
@@ -242,7 +222,7 @@ class CoreDataViewModel: ObservableObject {
         let newUser = UserEntity(context: viewContext)
         newUser.username = "davidson"
         newUser.password = "password"
-        newUser.log = NSSet(object: newLog)
+        //newUser.log = NSSet(object: newLog)
         newUser.goal = newGoal
         do {
             try viewContext.save()

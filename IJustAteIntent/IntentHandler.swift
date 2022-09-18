@@ -20,41 +20,27 @@ class IntentHandler: INExtension, AddFoodIntentHandling {
     }
     
     func handle(intent: AddFoodIntent, completion: @escaping (AddFoodIntentResponse) -> Void) {
-        guard let foods = intent.foods else {
+        guard let food = intent.food else {
             completion(AddFoodIntentResponse(code: .failure, userActivity: nil))
             return
         }
         
-        var foodEntities = [FoodEntity]()
-        var foodSuccesses = [String]()
-        var foodErrors = [String]()
-        for food in foods {
-            if let foodEntity: FoodEntity = viewModel.getFood(name: food) {
-                print("Found \(food) in food list")
-                foodEntities.append(foodEntity)
-                foodSuccesses.append(food)
-            } else {
-                print("Could not find \(food) in food list")
-                foodErrors.append(food)
-            }
-        }
-        viewModel.addToLog(foods: Set(foodEntities))
-        if (!foodErrors.isEmpty) {
-            completion(AddFoodIntentResponse.failure(foods: foodErrors))
+        if let foodEntity: FoodEntity = viewModel.getFood(name: food) {
+            print("Found \(food) in food list")
+            viewModel.addToLog(food: foodEntity)
+            completion(AddFoodIntentResponse.success(food: food))
         } else {
-            completion(AddFoodIntentResponse.success(foods: foodSuccesses))
+            print("Could not find \(food) in food list")
+            completion(AddFoodIntentResponse.failure(food: food))
         }
         
     }
     
-    func resolveFoods(for intent: AddFoodIntent, with completion: @escaping ([INStringResolutionResult]) -> Void) {
-        if let foods = intent.foods {
-            let mappedFoods: [INStringResolutionResult] = foods.map { food in
-                INStringResolutionResult.success(with: food)
-            }
-            completion(mappedFoods)
+    func resolveFood(for intent: AddFoodIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
+        if let food = intent.food {
+            completion(INStringResolutionResult.success(with: food))
         } else {
-            completion([INStringResolutionResult.needsValue()])
+            completion(INStringResolutionResult.needsValue())
         }
     }
     

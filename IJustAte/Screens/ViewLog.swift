@@ -13,7 +13,8 @@ struct ViewLog: View {
     var body: some View {
         VStack(spacing: 0) {
             List {
-                ForEach(log.foodArr) { food in
+                ForEach(log.foodArr) { loggedFood in
+                    let food = loggedFood.food!
                     NavigationLink(destination: ViewFood(food: food)) {
                         HStack {
                             Text(food.name!)
