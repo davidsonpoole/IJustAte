@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct AddFood: View {
+struct AddFoodView: View {
     @EnvironmentObject private var viewModel: CoreDataViewModel
     
     @Binding var isAddFoodActive: Bool

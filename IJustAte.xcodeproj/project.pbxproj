@@ -36,7 +36,7 @@
 		ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */; };
 		ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D85287E016F00D7BFF2 /* ViewFood.swift */; };
 		ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D87287E017300D7BFF2 /* ViewLog.swift */; };
-		ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D89287E017A00D7BFF2 /* AddFood.swift */; };
+		ACF25D8A287E017A00D7BFF2 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D89287E017A00D7BFF2 /* AddFoodView.swift */; };
 		ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D8B287E017F00D7BFF2 /* AddLog.swift */; };
 		ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */; };
 		ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */; };
@@ -92,7 +92,7 @@
 		ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+PreviewProvider.swift"; sourceTree = "<group>"; };
 		ACF25D85287E016F00D7BFF2 /* ViewFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFood.swift; sourceTree = "<group>"; };
 		ACF25D87287E017300D7BFF2 /* ViewLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLog.swift; sourceTree = "<group>"; };
-		ACF25D89287E017A00D7BFF2 /* AddFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFood.swift; sourceTree = "<group>"; };
+		ACF25D89287E017A00D7BFF2 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
 		ACF25D8B287E017F00D7BFF2 /* AddLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLog.swift; sourceTree = "<group>"; };
 		ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+PreviewProvider.swift"; sourceTree = "<group>"; };
 		ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+PreviewProvider.swift"; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				AC9D57D3285D0C8B007956D2 /* ContentView.swift */,
 				ACF25D85287E016F00D7BFF2 /* ViewFood.swift */,
 				ACF25D87287E017300D7BFF2 /* ViewLog.swift */,
-				ACF25D89287E017A00D7BFF2 /* AddFood.swift */,
+				ACF25D89287E017A00D7BFF2 /* AddFoodView.swift */,
 				ACF25D8B287E017F00D7BFF2 /* AddLog.swift */,
 			);
 			path = Screens;
@@ -319,7 +319,7 @@
 				ACBA874F2880E26000474639 /* Macro.swift in Sources */,
 				ACF060882881A3F0002D3017 /* HomeView.swift in Sources */,
 				ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */,
-				ACF25D8A287E017A00D7BFF2 /* AddFood.swift in Sources */,
+				ACF25D8A287E017A00D7BFF2 /* AddFoodView.swift in Sources */,
 				ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */,
 				AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */,
 				AC9D57DB285D0C8D007956D2 /* CoreDataViewModel.swift in Sources */,

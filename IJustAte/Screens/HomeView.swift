@@ -16,7 +16,7 @@ struct HomeView: View {
             LogCardList()
                 .padding([.bottom], 20)
             .toolbar {
-                NavigationLink(destination: AddFood(isAddFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
+                NavigationLink(destination: AddFoodView(isAddFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
                     Text("Add food")
                 }
             }
