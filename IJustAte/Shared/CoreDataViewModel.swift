@@ -207,8 +207,8 @@ class CoreDataViewModel: ObservableObject {
         }
         let newLog = LogEntity(context: viewContext)
         newLog.timestamp = Date()
-        var loggedFoods: [LoggedFoodEntity] = foodArr.map {
-            var newLoggedFood = LoggedFoodEntity(context: viewContext)
+        let loggedFoods: [LoggedFoodEntity] = foodArr.map {
+            let newLoggedFood = LoggedFoodEntity(context: viewContext)
             newLoggedFood.timestamp = Date()
             newLoggedFood.food = $0
             return newLoggedFood

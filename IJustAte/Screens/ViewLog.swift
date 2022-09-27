@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ViewLog: View {
+    @EnvironmentObject private var viewModel: CoreDataViewModel
     @ObservedObject var log: LogEntity
     
     var body: some View {
@@ -24,12 +25,19 @@ struct ViewLog: View {
                         }
                     }
                 }
+                .onDelete(perform: delete)
             }
             Divider()
             Totals(log.totals)
                 .padding()
             Divider()
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        let loggedFood = log.foodArr[offsets.first!]
+        viewModel.container.viewContext.delete(loggedFood)
+        viewModel.saveData()
     }
 }
 

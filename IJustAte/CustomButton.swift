@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Button<Content: View>: View {
+struct CustomButton<Content: View>: View {
     var opacity: CGFloat
     @ViewBuilder var content: Content
     @State private var isPressed = false

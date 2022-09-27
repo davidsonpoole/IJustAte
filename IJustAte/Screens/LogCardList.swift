@@ -19,7 +19,7 @@ struct LogCardList: View {
                 .font(.title)
             Spacer()
             let selectedLog = viewModel.logs.last(where: {$0.timestamp?.get(.day) == day.get(.day)})
-            var logExists = selectedLog != nil && (selectedLog?.foods?.allObjects as! [LoggedFoodEntity]).count > 0
+            let logExists = selectedLog != nil && (selectedLog?.foods?.allObjects as! [LoggedFoodEntity]).count > 0
             if (logExists) {
                 ViewLog(log: selectedLog!)
             } else {
@@ -27,14 +27,14 @@ struct LogCardList: View {
                     .padding(.bottom, 50)
             }
             NavigationLink(destination: AddLog(isAddLogActive: $isAddLogActive, day: day), isActive: $isAddLogActive) {
-                Text(logExists ? "Edit log" : "AddFood")
+                Text(logExists ? "Edit log" : "Add Food")
                     .padding()
                     .background(logExists ? .orange : .green)
                     .cornerRadius(10)
                     .foregroundColor(.black)
             }
             HStack {
-                Button(opacity: 0.7) {
+                CustomButton(opacity: 0.7) {
                     Image(systemName: "arrow.left")
                         .padding()
                         .frame(maxWidth: 50, maxHeight: 50)
@@ -44,7 +44,7 @@ struct LogCardList: View {
                             day = day.dayBefore
                         }
                 }
-                Button(opacity: 0.7) {
+                CustomButton(opacity: 0.7) {
                     Image(systemName: "arrow.right")
                         .padding()
                         .frame(maxWidth: 50, maxHeight: 50)

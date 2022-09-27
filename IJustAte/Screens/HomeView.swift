@@ -16,11 +16,11 @@ struct HomeView: View {
             LogCardList()
                 .padding([.bottom], 20)
             .toolbar {
-                NavigationLink(destination: AddFoodView(isAddFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
-                    Text("Add food")
+                NavigationLink(destination: NewFoodView(isNewFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
+                    Text("New food")
                 }
             }
-            .navigationTitle("Calorie Counter")
+            .navigationTitle("IJustAte")
         }
         .navigationViewStyle(.stack)
     }
