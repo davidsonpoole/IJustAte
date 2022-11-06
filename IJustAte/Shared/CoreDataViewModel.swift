@@ -13,7 +13,14 @@ class CoreDataViewModel: ObservableObject {
     static var preview: CoreDataViewModel = createPreviewData()
 
     var container: PersistentContainer
-        
+    var decoder = JSONDecoder()
+    let defaults = UserDefaults.standard
+    
+    let lastTimestampKey = "lastTimestamp"
+    let lastFoodIdKey = "lastFoodId"
+    let localIP = "http://REDACTED_LOCAL_IP/"
+    let externalIP = "http://REDACTED_EXTERNAL_IP/"
+    
     @Published var foods: [FoodEntity] = []
     @Published var loggedFoods: [LoggedFoodEntity] = []
     @Published var logs: [LogEntity] = []
@@ -25,24 +32,89 @@ class CoreDataViewModel: ObservableObject {
         if (!isPreview) {
             container.setup()
             fetchEverything()
+            
+            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = container.viewContext
+            
+            if (foods.isEmpty) {
+                // App is being run for the first time
+                defaults.set("", forKey: lastTimestampKey)
+                defaults.set(10000, forKey: lastFoodIdKey)
+            }
+            
+            loadFoodsFromRemote()
         }
     }
     
-    // ------ Start of Data Controller commands --------- //
-        
-    
     func createFood(name: String, cal: Double, car: Double, pro: Double, fat: Double) {
         let newFood = FoodEntity(context: container.viewContext)
+        
+        let id: Int16 = Int16(defaults.integer(forKey: lastFoodIdKey))
+        newFood.id = id
+        defaults.set(id + 1, forKey: lastFoodIdKey)
+        
         newFood.name = name
         newFood.cal = cal
         newFood.car = car
         newFood.pro = pro
         newFood.fat = fat
         saveData()
-    }
-    
-    enum MyError: Error {
-        case runtimeError(String)
+        
+        // Send food information to global database for approval
+        let route = "foods/api/foods/"
+        var req = URLRequest(url: URL(string: localIP + route)!)
+        req.httpMethod = "POST"
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.setValue("application/json", forHTTPHeaderField: "Accept")
+        req.httpBody = try? JSONEncoder().encode(newFood)
+        
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 3.0
+        let session = URLSession(configuration: sessionConfig)
+        session.dataTask(with: req) { [self] data, response, error in
+            guard
+                let _ = data,
+                let response = response as? HTTPURLResponse,
+                error == nil
+            else {
+                print("Unable to connect to Local IP. Trying External IP...")
+                req = URLRequest(url: URL(string: externalIP + route)!)
+                req.httpMethod = "POST"
+                req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                req.setValue("application/json", forHTTPHeaderField: "Accept")
+                req.httpBody = try? JSONEncoder().encode(newFood)
+                
+                session.dataTask(with: req) { data, response, error in
+                    guard
+                        let _ = data,
+                        let response = response as? HTTPURLResponse,
+                        error == nil
+                    else {
+                        print("error", error ?? URLError(.badServerResponse))
+                        return
+                    }
+                    guard (200...299) ~= response.statusCode else {
+                        print("status code should be 2xx, but it is \(response.statusCode)")
+                        print("response = \(response)")
+                        return
+                    }
+                    
+                    // Success
+                    print("Successfully sent new food.")
+                    
+                }.resume()
+                
+                return
+            }
+            guard (200...299) ~= response.statusCode else {
+                print("status code should be 2xx, but it is \(response.statusCode)")
+                print("response = \(response)")
+                return
+            }
+            
+            // Success
+            print("Successfully sent new food.")
+            
+        }.resume()
     }
     
     func addToLog(food: FoodEntity, date: Date = Date()) {
@@ -79,6 +151,8 @@ class CoreDataViewModel: ObservableObject {
     
     func fetchFoods() {
         let request = NSFetchRequest<FoodEntity>(entityName: "FoodEntity")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         do {
             foods = try container.viewContext.fetch(request)
         } catch let error {
@@ -147,6 +221,53 @@ class CoreDataViewModel: ObservableObject {
             try container.viewContext.execute(deleteRequest)
         } catch let error {
             print("Error deleting foods. \(error)")
+        }
+    }
+    
+    func loadFoodsFromRemote() {
+        let route = "foods/api/foods"
+        let lastTimestamp: String = defaults.string(forKey: lastTimestampKey)!
+        var urlParam = ""
+        if lastTimestamp != "" {
+            urlParam = "/?time=" + lastTimestamp
+        }
+        let url = URL(string: localIP + route + urlParam)!
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 3.0
+        let session = URLSession(configuration: sessionConfig)
+        session.fetchData(for: url, decoder: decoder) { [self] (result: Result<[FoodEntity], Error>) in
+            switch result {
+            case .success(let foods):
+                print("Successfully loaded food array")
+                print(foods)
+                if !foods.isEmpty {
+                    // get the first food which is the most recently updated
+                    defaults.set(foods.first!.modified, forKey: lastTimestamp)
+                }
+                DispatchQueue.main.async {
+                    self.saveData()
+                }
+            case .failure(_ ):
+                print("Unable to connect. Trying external IP...")
+                let extURL = URL(string: externalIP + route + urlParam)!
+                DispatchQueue.main.async {
+                    session.fetchData(for: extURL, decoder: self.decoder) { [self] (result: Result<[FoodEntity], Error>) in
+                        switch result {
+                        case .success(_ ):
+                            print("Succesfully loaded food array")
+                            if !foods.isEmpty {
+                                // get the first food which is the most recently updated
+                                defaults.set(foods.first!.modified, forKey: lastTimestamp)
+                            }
+                            DispatchQueue.main.async {
+                                self.saveData()
+                            }
+                        case .failure(let error):
+                            print("load failed " + error.localizedDescription)
+                      }
+                    }
+                }
+          }
         }
     }
     

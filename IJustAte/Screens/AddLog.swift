@@ -14,6 +14,7 @@ struct AddLog: View {
     @Binding var isAddLogActive: Bool
     var day: Date = Date()
     @State private var showSuccess = false
+    @State private var searchText = ""
     
     struct ListItem: View {
         var text: String?
@@ -22,33 +23,37 @@ struct AddLog: View {
         @State private var isPressed = false
         
         var body: some View {
-            CustomButton(opacity: 0.7) {
-                Text(text ?? "")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .background(.white)
-                    .onTapGesture {
-                        onTap()
-                    }
-            }
+            Text(text ?? "")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .background(.white)
+                .onTapGesture {
+                    onTap()
+                }
         }
     }
     
     var body: some View {
         Text("What foods would you like to add?")
-        NavigationView {
-            ZStack {
-                List {
-                    ForEach(viewModel.foods, id: \.self) { item in
-                        ListItem(text: item.name) {
-                            viewModel.addToLog(food: item)
-                            showSuccess = true
-                        }
+        ZStack {
+            List {
+                ForEach(searchResults, id: \.self) { item in
+                    ListItem(text: item.name) {
+                        viewModel.addToLog(food: item)
+                        showSuccess = true
                     }
                 }
-                .listStyle(.inset)
-                SuccessPopup(active: $showSuccess)
-                    .zIndex(1) // to fix a bug with easeOut
             }
+            .searchable(text: $searchText)
+            SuccessPopup(active: $showSuccess)
+                .zIndex(1) // to fix a bug with easeOut
+        }
+    }
+    
+    var searchResults: [FoodEntity] {
+        if searchText.isEmpty {
+            return viewModel.foods
+        } else {
+            return viewModel.foods.filter { $0.name!.localizedCaseInsensitiveContains(searchText) }
         }
     }
     

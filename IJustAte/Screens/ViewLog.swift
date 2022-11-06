@@ -14,7 +14,7 @@ struct ViewLog: View {
     var body: some View {
         VStack(spacing: 0) {
             List {
-                ForEach(log.foodArr) { loggedFood in
+                ForEach(log.foodArr.sorted { $0.timestamp! > $1.timestamp! }) { loggedFood in
                     let food = loggedFood.food!
                     NavigationLink(destination: ViewFood(food: food)) {
                         HStack {

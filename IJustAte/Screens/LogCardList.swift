@@ -27,9 +27,9 @@ struct LogCardList: View {
                     .padding(.bottom, 50)
             }
             NavigationLink(destination: AddLog(isAddLogActive: $isAddLogActive, day: day), isActive: $isAddLogActive) {
-                Text(logExists ? "Edit log" : "Add Food")
+                Text("Add Food")
                     .padding()
-                    .background(logExists ? .orange : .green)
+                    .background(.green)
                     .cornerRadius(10)
                     .foregroundColor(.black)
             }

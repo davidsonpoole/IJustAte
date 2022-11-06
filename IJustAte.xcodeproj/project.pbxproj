@@ -10,6 +10,12 @@
 		AC10B7BA2892C731000CFDE1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7B92892C731000CFDE1 /* CustomButton.swift */; };
 		AC10B7BC2892C763000CFDE1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* DateUtils.swift */; };
 		AC10B7BE2892C7A6000CFDE1 /* LogCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */; };
+		AC45AAA22915856700D3C71A /* FetchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA12915856700D3C71A /* FetchUtils.swift */; };
+		AC45AAA32915856700D3C71A /* FetchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA12915856700D3C71A /* FetchUtils.swift */; };
+		AC45AAA92915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */; };
+		AC45AAAA2915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */; };
+		AC45AAAB2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */; };
+		AC45AAAC2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */; };
 		AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */; };
 		AC47246C28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
 		AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
@@ -70,6 +76,9 @@
 		AC10B7B92892C731000CFDE1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AC10B7BB2892C763000CFDE1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCardList.swift; sourceTree = "<group>"; };
+		AC45AAA12915856700D3C71A /* FetchUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUtils.swift; sourceTree = "<group>"; };
+		AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryObserver.swift; sourceTree = "<group>"; };
 		AC47246B28D122E100076E74 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		AC9D57CE285D0C8B007956D2 /* IJustAte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IJustAte.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +129,8 @@
 		AC9D57C5285D0C8B007956D2 = {
 			isa = PBXGroup;
 			children = (
+				AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */,
+				AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */,
 				ACD4D87528C269D400D97F61 /* Intents.intentdefinition */,
 				AC9D57D0285D0C8B007956D2 /* IJustAte */,
 				ACBB9D1A28BBA19F00A36955 /* IJustAteIntent */,
@@ -189,6 +200,7 @@
 				ACBA874E2880E26000474639 /* Macro.swift */,
 				AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */,
 				AC47246B28D122E100076E74 /* PersistentContainer.swift */,
+				AC45AAA12915856700D3C71A /* FetchUtils.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -314,8 +326,10 @@
 			files = (
 				ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */,
 				ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */,
+				AC45AAA92915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */,
 				AC10B7BE2892C7A6000CFDE1 /* LogCardList.swift in Sources */,
 				AC10B7BC2892C763000CFDE1 /* DateUtils.swift in Sources */,
+				AC45AAAB2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */,
 				ACBA874F2880E26000474639 /* Macro.swift in Sources */,
 				ACF060882881A3F0002D3017 /* HomeView.swift in Sources */,
 				ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */,
@@ -331,6 +345,7 @@
 				AC10B7BA2892C731000CFDE1 /* CustomButton.swift in Sources */,
 				ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */,
 				ACF060862881A2FC002D3017 /* LoginView.swift in Sources */,
+				AC45AAA22915856700D3C71A /* FetchUtils.swift in Sources */,
 				ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */,
 				AC9D57D2285D0C8B007956D2 /* IJustAteApp.swift in Sources */,
 			);
@@ -341,12 +356,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */,
+				AC45AAA32915856700D3C71A /* FetchUtils.swift in Sources */,
 				ACD4D88028C285E900D97F61 /* CoreDataViewModel.swift in Sources */,
 				ACD4D88228C28A2300D97F61 /* DateUtils.swift in Sources */,
 				ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */,
 				AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */,
 				AC47246E28D1248200076E74 /* PersistentHistoryObserver.swift in Sources */,
+				AC45AAAA2915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */,
 				ACD4D88328C28A2E00D97F61 /* Macro.swift in Sources */,
+				AC45AAAC2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */,
 				ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +515,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,6 +551,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
