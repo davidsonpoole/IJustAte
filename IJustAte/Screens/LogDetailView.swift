@@ -7,46 +7,44 @@
 
 import SwiftUI
 
-struct ViewLog: View {
-    @EnvironmentObject private var viewModel: CoreDataViewModel
-    @ObservedObject var log: LogEntity
+struct LogDetailView: View {
+    @EnvironmentObject var model: IJustAteViewModel
     
     var body: some View {
         VStack(spacing: 0) {
             List {
-                ForEach(log.foodArr.sorted { $0.timestamp! > $1.timestamp! }) { loggedFood in
-                    let food = loggedFood.food!
-                    NavigationLink(destination: ViewFood(food: food)) {
+                ForEach(model.foods.map{$0.food}) { food in
+                    NavigationLink(destination: FoodDetailView(food: food)) {
                         HStack {
-                            Text(food.name!)
+                            Text(food.name)
                             Spacer()
                             Text(String.formatDouble(food.cal))
                                 .padding([.trailing], 20)
                         }
                     }
+                    .onAppear {
+                        print("re rendering LoggedFoodItem")
+                    }
                 }
                 .onDelete(perform: delete)
             }
             Divider()
-            Totals(log.totals)
+            Totals()
                 .padding()
             Divider()
         }
     }
     
     func delete(at offsets: IndexSet) {
-        let loggedFood = log.foodArr[offsets.first!]
-        viewModel.container.viewContext.delete(loggedFood)
-        viewModel.saveData()
+        model.deleteFoodFromLog(offset: offsets.first!)
     }
 }
 
 struct Totals: View {
-    private var totals: Macro
-    
-    init(_ totals: Macro) { self.totals = totals }
+    @EnvironmentObject var model: IJustAteViewModel
     
     var body: some View {
+        let log: LogEntity? = model.log
         HStack(alignment: .top) {
             Text("Totals")
                 .font(.bold(.largeTitle)())
@@ -60,6 +58,7 @@ struct Totals: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .topLeading)
                 VStack(alignment: .trailing) {
+                    let totals = log?.totals ?? Macro.empty
                     Text(String.formatDouble(totals.cal))
                     Text(String.formatDouble(totals.car))
                     Text(String.formatDouble(totals.pro))

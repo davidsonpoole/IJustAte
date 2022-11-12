@@ -9,7 +9,9 @@ import SwiftUI
 import CoreData
 
 struct NewFoodView: View {
-    @EnvironmentObject private var viewModel: CoreDataViewModel
+    @EnvironmentObject var model: IJustAteViewModel
+    let defaults = UserDefaults.standard
+    
     private let DEBUG = true
     @State private var clearAllFoodsActive = false
     
@@ -30,31 +32,25 @@ struct NewFoodView: View {
             CustomTextField(name: "Carbs", numbersOnly: true, input: $car)
             CustomTextField(name: "Fat", numbersOnly: true, input: $fat)
             Spacer()
-            if (DEBUG) {
-                HStack {
-                    Text("Enter")
-                        .padding()
-                        .background(.green)
-                        .cornerRadius(10)
-                        .foregroundColor(.black)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .onTapGesture {
-                            if validateFood() {
-                                // send food to database
-                                withAnimation {
-                                    viewModel.createFood(
-                                            name: name,
-                                            cal: Double(cal) ?? 0,
-                                            car: Double(car) ?? 0,
-                                            pro: Double(pro) ?? 0,
-                                            fat: Double(fat) ?? 0
-                                            )
-                                }
-                                isNewFoodActive = false
-                            } else {
-                                // send error
+            HStack {
+                Text("Enter")
+                    .padding()
+                    .background(.green)
+                    .cornerRadius(10)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .onTapGesture {
+                        if validateFood() {
+                            // send food to database
+                            withAnimation {
+                                model.createFood(name: name, cal: cal, car: car, pro: pro, fat: fat)
                             }
+                            isNewFoodActive = false
+                        } else {
+                            // send error
                         }
+                    }
+                if (DEBUG) {
                     Text("Clear Foods")
                         .padding()
                         .background(.red)
@@ -66,35 +62,10 @@ struct NewFoodView: View {
                         }
                         .confirmationDialog("Are you sure you want to clear all foods?", isPresented: $clearAllFoodsActive) {
                             Button("Delete all foods", role: .destructive) {
-                                viewModel.clearFoods()
-                                viewModel.saveData()
+                                model.clearFoods()
                             }
                         }
                 }
-            } else {
-                Text("Enter")
-                    .padding()
-                    .background(.green)
-                    .cornerRadius(10)
-                    .foregroundColor(.black)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .onTapGesture {
-                        if validateFood() {
-                            // send food to database
-                            withAnimation {
-                                viewModel.createFood(
-                                    name: name,
-                                    cal: Double(cal) ?? 0,
-                                    car: Double(car) ?? 0,
-                                    pro: Double(pro) ?? 0,
-                                    fat: Double(fat) ?? 0
-                                )
-                            }
-                            isNewFoodActive = false
-                        } else {
-                            // send error
-                        }
-                    }
             }
         }
     }

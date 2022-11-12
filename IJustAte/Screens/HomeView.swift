@@ -9,18 +9,26 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var user: UserEntity?
-    @State private var isAddFoodActive = false
+    @State private var date = Date()
+    @EnvironmentObject var model: IJustAteViewModel
     
     var body: some View {
         NavigationView {
-            LogCardList()
+            SwipableLogContainer()
                 .padding([.bottom], 20)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                NavigationLink(destination: NewFoodView(isNewFoodActive: $isAddFoodActive), isActive: $isAddFoodActive) {
-                    Text("New food")
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text("IJustAte")
+                            .font(.system(size: 50, weight: .bold))
+                        Spacer()
+                        let date = model.date
+                        Text(verbatim: "\(date.get(.month))/\(date.get(.day))/\(date.get(.year))")
+                            .font(.title)
+                    }
                 }
             }
-            .navigationTitle("IJustAte")
         }
         .navigationViewStyle(.stack)
     }
@@ -35,6 +43,6 @@ struct HomeView_PreviewHelper: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView_PreviewHelper().environmentObject(CoreDataViewModel.preview)
+        HomeView_PreviewHelper()
     }
 }

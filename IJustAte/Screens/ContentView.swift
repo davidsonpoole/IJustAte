@@ -25,6 +25,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, CoreDataViewModel.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, IJustAteViewModel.preview.container.viewContext)
     }
 }

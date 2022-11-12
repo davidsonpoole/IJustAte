@@ -6,32 +6,32 @@
         <attribute name="fat" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="local" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
         <attribute name="pro" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="loggedFood" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoggedFoodEntity" inverseName="food" inverseEntity="LoggedFoodEntity"/>
+        <relationship name="loggedFoods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoggedFoodEntity" inverseName="food" inverseEntity="LoggedFoodEntity"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="GoalEntity" representedClassName="GoalEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="cal" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="car" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="fat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="pro" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    <entity name="GoalEntity" representedClassName="GoalEntity" syncable="YES">
+        <attribute name="cal" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="car" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fat" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pro" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserEntity" inverseName="goal" inverseEntity="UserEntity"/>
     </entity>
-    <entity name="LogEntity" representedClassName="LogEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoggedFoodEntity" inverseName="log" inverseEntity="LoggedFoodEntity"/>
+    <entity name="LogEntity" representedClassName="LogEntity" syncable="YES">
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="foods" toMany="YES" deletionRule="Nullify" destinationEntity="LoggedFoodEntity" inverseName="log" inverseEntity="LoggedFoodEntity"/>
     </entity>
-    <entity name="LoggedFoodEntity" representedClassName="LoggedFoodEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodEntity" inverseName="loggedFood" inverseEntity="FoodEntity"/>
-        <relationship name="log" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LogEntity" inverseName="foods" inverseEntity="LogEntity"/>
+    <entity name="LoggedFoodEntity" representedClassName="LoggedFoodEntity" syncable="YES">
+        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodEntity" inverseName="loggedFoods" inverseEntity="FoodEntity"/>
+        <relationship name="log" maxCount="1" deletionRule="Nullify" destinationEntity="LogEntity" inverseName="foods" inverseEntity="LogEntity"/>
     </entity>
-    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
         <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalEntity" inverseName="user" inverseEntity="GoalEntity"/>

@@ -10,7 +10,7 @@ import CoreData
 
 extension UserEntity {
     static var example: UserEntity {
-        let context = CoreDataViewModel.preview.container.viewContext
+        let context = IJustAteViewModel.preview.container.viewContext
         let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)

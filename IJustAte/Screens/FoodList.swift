@@ -7,14 +7,43 @@
 
 import SwiftUI
 import CoreData
+import Intents
 
-struct AddLog: View {
-    @EnvironmentObject private var viewModel: CoreDataViewModel
+struct FoodList: View {
+    @EnvironmentObject var model: IJustAteViewModel
     
-    @Binding var isAddLogActive: Bool
-    var day: Date = Date()
+    @Binding var active: Bool
+    var log: LogEntity?
+    
+    @FetchRequest(fetchRequest: FoodEntity.allFoodsFetchRequest())
+    private var foods: FetchedResults<FoodEntity>
+    
     @State private var showSuccess = false
     @State private var searchText = ""
+    @State private var isNewFoodActive = false
+    
+    var body: some View {
+        Text("What foods would you like to add?")
+        ZStack {
+            List {
+                ForEach(searchResults, id: \.self) { item in
+                    ListItem(text: item.name) {
+                        model.appendFoodToLog(food: item)
+                        showSuccess = true
+                    }
+                }
+            }
+            .searchable(text: $searchText)
+            .toolbar {
+                NavigationLink(destination: NewFoodView(isNewFoodActive: $isNewFoodActive), isActive: $isNewFoodActive) {
+                    Image(systemName: "plus")
+                        .padding(.trailing, 5)
+                }
+            }
+            SuccessPopup(active: $showSuccess)
+                .zIndex(1) // to fix a bug with easeOut
+        }
+    }
     
     struct ListItem: View {
         var text: String?
@@ -32,28 +61,11 @@ struct AddLog: View {
         }
     }
     
-    var body: some View {
-        Text("What foods would you like to add?")
-        ZStack {
-            List {
-                ForEach(searchResults, id: \.self) { item in
-                    ListItem(text: item.name) {
-                        viewModel.addToLog(food: item)
-                        showSuccess = true
-                    }
-                }
-            }
-            .searchable(text: $searchText)
-            SuccessPopup(active: $showSuccess)
-                .zIndex(1) // to fix a bug with easeOut
-        }
-    }
-    
     var searchResults: [FoodEntity] {
         if searchText.isEmpty {
-            return viewModel.foods
+            return foods.map{ $0 }
         } else {
-            return viewModel.foods.filter { $0.name!.localizedCaseInsensitiveContains(searchText) }
+            return foods.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
@@ -86,16 +98,16 @@ struct AddLog: View {
         }
     }
 }
-
-struct AddLogBinding_Preview: View {
-    @State private var value = false
-    var body: some View {
-        AddLog(isAddLogActive: $value)
-    }
-}
-
-struct AddLog_Previews: PreviewProvider {
-    static var previews: some View {
-        AddLogBinding_Preview().environmentObject(CoreDataViewModel.preview)
-    }
-}
+//
+//struct FoodListBinding_Preview: View {
+//    @State private var value = false
+//    var body: some View {
+//        FoodList(active: $value)
+//    }
+//}
+//
+//struct FoodList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FoodListBinding_Preview()
+//    }
+//}

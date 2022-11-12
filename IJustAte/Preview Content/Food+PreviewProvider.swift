@@ -10,7 +10,7 @@ import CoreData
 
 extension FoodEntity {
     static var example: FoodEntity {
-        let context = CoreDataViewModel.preview.container.viewContext
+        let context = IJustAteViewModel.preview.container.viewContext
         let fetchRequest: NSFetchRequest<FoodEntity> = FoodEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)

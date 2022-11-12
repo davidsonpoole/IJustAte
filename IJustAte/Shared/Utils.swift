@@ -27,13 +27,6 @@ extension Date {
     }
 }
 
-let logFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 extension String {
     static func formatDouble(_ double: Double) -> String {
         if (floor(double) == double) {
@@ -41,5 +34,24 @@ extension String {
         } else {
             return String(format: "%.1f", double)
         }
+    }
+}
+
+extension URLSession {
+    func fetchData<T: Decodable>(for url: URL, decoder: JSONDecoder, completion: @escaping (Result<T, Error>) -> Void) {
+        self.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+            }
+
+            if let data = data {
+                do {
+                    let object = try decoder.decode(T.self, from: data)
+                    completion(.success(object))
+                } catch let decoderError {
+                    completion(.failure(decoderError))
+                }
+            }
+        }.resume()
     }
 }

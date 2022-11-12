@@ -10,17 +10,19 @@ import Intents
 
 @main
 struct IJustAteApp: App {
-    @Environment(\.scenePhase) private var scenePhase
-    @StateObject var viewModel: CoreDataViewModel = CoreDataViewModel.shared
+    
+    init() {
+        UserDefaults.standard.register(defaults: [
+            UserDefaults.Keys.lastFoodId.rawValue: 10000,
+            UserDefaults.Keys.lastTimestamp.rawValue: ""
+        ])
+        
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
-        }
-        .onChange(of: scenePhase) { phase in
-            INPreferences.requestSiriAuthorization({status in
-                // handle errors here
-            })
+                .environmentObject(IJustAteViewModel.shared)
+                .environment(\.managedObjectContext, IJustAteViewModel.shared.container.viewContext)
         }
     }
 }

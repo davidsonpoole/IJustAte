@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0477562917FA2700EA6ABC /* LogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04774E2917FA2700EA6ABC /* LogEntity.swift */; };
+		AC0477572917FA2700EA6ABC /* LogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04774E2917FA2700EA6ABC /* LogEntity.swift */; };
+		AC04775A2917FA2700EA6ABC /* GoalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477502917FA2700EA6ABC /* GoalEntity.swift */; };
+		AC04775B2917FA2700EA6ABC /* GoalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477502917FA2700EA6ABC /* GoalEntity.swift */; };
+		AC04775E2917FA2700EA6ABC /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477522917FA2700EA6ABC /* UserEntity.swift */; };
+		AC04775F2917FA2700EA6ABC /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477522917FA2700EA6ABC /* UserEntity.swift */; };
+		AC0477622917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */; };
+		AC0477632917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */; };
+		AC04776A29180FF900EA6ABC /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776929180FF800EA6ABC /* LogCard.swift */; };
+		AC04776C29181C1C00EA6ABC /* IJustAteProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */; };
+		AC04776D29181C1C00EA6ABC /* IJustAteProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */; };
+		AC04776F291DB2C600EA6ABC /* LoggedFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */; };
+		AC047772291DE87300EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
+		AC047773291E86D600EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
 		AC10B7BA2892C731000CFDE1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7B92892C731000CFDE1 /* CustomButton.swift */; };
-		AC10B7BC2892C763000CFDE1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* DateUtils.swift */; };
-		AC10B7BE2892C7A6000CFDE1 /* LogCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */; };
-		AC45AAA22915856700D3C71A /* FetchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA12915856700D3C71A /* FetchUtils.swift */; };
-		AC45AAA32915856700D3C71A /* FetchUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA12915856700D3C71A /* FetchUtils.swift */; };
-		AC45AAA92915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */; };
-		AC45AAAA2915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */; };
-		AC45AAAB2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */; };
-		AC45AAAC2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */; };
+		AC10B7BC2892C763000CFDE1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* Utils.swift */; };
+		AC10B7BE2892C7A6000CFDE1 /* SwipableLogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BD2892C7A6000CFDE1 /* SwipableLogContainer.swift */; };
+		AC45AAA92915AA0100D3C71A /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity.swift */; };
+		AC45AAAA2915AA0100D3C71A /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45AAA72915AA0100D3C71A /* FoodEntity.swift */; };
 		AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */; };
 		AC47246C28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
 		AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC47246B28D122E100076E74 /* PersistentContainer.swift */; };
@@ -24,26 +34,24 @@
 		AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57D3285D0C8B007956D2 /* ContentView.swift */; };
 		AC9D57D6285D0C8D007956D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D5285D0C8D007956D2 /* Assets.xcassets */; };
 		AC9D57D9285D0C8D007956D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */; };
-		AC9D57DB285D0C8D007956D2 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */; };
+		AC9D57DB285D0C8D007956D2 /* IJustAteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* IJustAteViewModel.swift */; };
 		AC9D57DE285D0C8D007956D2 /* IJustAte.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */; };
-		ACBA874F2880E26000474639 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
 		ACBB9D1928BBA19F00A36955 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBB9D1828BBA19F00A36955 /* Intents.framework */; };
 		ACBB9D2028BBA19F00A36955 /* IJustAteIntent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87528C269D400D97F61 /* Intents.intentdefinition */; };
 		ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */; };
 		ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD4D87D28C285AA00D97F61 /* IntentHandler.swift */; };
-		ACD4D88028C285E900D97F61 /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */; };
+		ACD4D88028C285E900D97F61 /* IJustAteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DA285D0C8D007956D2 /* IJustAteViewModel.swift */; };
 		ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57DC285D0C8D007956D2 /* IJustAte.xcdatamodeld */; };
-		ACD4D88228C28A2300D97F61 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* DateUtils.swift */; };
-		ACD4D88328C28A2E00D97F61 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBA874E2880E26000474639 /* Macro.swift */; };
+		ACD4D88228C28A2300D97F61 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* Utils.swift */; };
 		ACF060862881A2FC002D3017 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060852881A2FC002D3017 /* LoginView.swift */; };
 		ACF060882881A3F0002D3017 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060872881A3F0002D3017 /* HomeView.swift */; };
 		ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */; };
-		ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D85287E016F00D7BFF2 /* ViewFood.swift */; };
-		ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D87287E017300D7BFF2 /* ViewLog.swift */; };
+		ACF25D86287E016F00D7BFF2 /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D85287E016F00D7BFF2 /* FoodDetailView.swift */; };
+		ACF25D88287E017300D7BFF2 /* LogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D87287E017300D7BFF2 /* LogDetailView.swift */; };
 		ACF25D8A287E017A00D7BFF2 /* NewFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D89287E017A00D7BFF2 /* NewFoodView.swift */; };
-		ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D8B287E017F00D7BFF2 /* AddLog.swift */; };
+		ACF25D8C287E017F00D7BFF2 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D8B287E017F00D7BFF2 /* FoodList.swift */; };
 		ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */; };
 		ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */; };
 /* End PBXBuildFile section */
@@ -73,12 +81,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AC04774E2917FA2700EA6ABC /* LogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntity.swift; sourceTree = "<group>"; };
+		AC0477502917FA2700EA6ABC /* GoalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEntity.swift; sourceTree = "<group>"; };
+		AC0477522917FA2700EA6ABC /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedFoodEntity.swift; sourceTree = "<group>"; };
+		AC04776929180FF800EA6ABC /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
+		AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJustAteProps.swift; sourceTree = "<group>"; };
+		AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedFoodItem.swift; sourceTree = "<group>"; };
+		AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUpdateMessage.swift; sourceTree = "<group>"; };
 		AC10B7B92892C731000CFDE1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		AC10B7BB2892C763000CFDE1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCardList.swift; sourceTree = "<group>"; };
-		AC45AAA12915856700D3C71A /* FetchUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUtils.swift; sourceTree = "<group>"; };
-		AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AC10B7BB2892C763000CFDE1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AC10B7BD2892C7A6000CFDE1 /* SwipableLogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableLogContainer.swift; sourceTree = "<group>"; };
+		AC45AAA72915AA0100D3C71A /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
 		AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentHistoryObserver.swift; sourceTree = "<group>"; };
 		AC47246B28D122E100076E74 /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		AC9D57CE285D0C8B007956D2 /* IJustAte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IJustAte.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,10 +100,9 @@
 		AC9D57D3285D0C8B007956D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC9D57D5285D0C8D007956D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9D57D8285D0C8D007956D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
+		AC9D57DA285D0C8D007956D2 /* IJustAteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJustAteViewModel.swift; sourceTree = "<group>"; };
 		AC9D57DD285D0C8D007956D2 /* CalorieCounter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalorieCounter.xcdatamodel; sourceTree = "<group>"; };
 		ACADD67C28BB9E1700E6531C /* IJustAte.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IJustAte.entitlements; sourceTree = "<group>"; };
-		ACBA874E2880E26000474639 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		ACBB9D1628BBA19F00A36955 /* IJustAteIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IJustAteIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBB9D1828BBA19F00A36955 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		ACBB9D1D28BBA19F00A36955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +112,10 @@
 		ACF060852881A2FC002D3017 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		ACF060872881A3F0002D3017 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ACF060892881AC0A002D3017 /* User+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+PreviewProvider.swift"; sourceTree = "<group>"; };
-		ACF25D85287E016F00D7BFF2 /* ViewFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFood.swift; sourceTree = "<group>"; };
-		ACF25D87287E017300D7BFF2 /* ViewLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewLog.swift; sourceTree = "<group>"; };
+		ACF25D85287E016F00D7BFF2 /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
+		ACF25D87287E017300D7BFF2 /* LogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailView.swift; sourceTree = "<group>"; };
 		ACF25D89287E017A00D7BFF2 /* NewFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodView.swift; sourceTree = "<group>"; };
-		ACF25D8B287E017F00D7BFF2 /* AddLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLog.swift; sourceTree = "<group>"; };
+		ACF25D8B287E017F00D7BFF2 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
 		ACF25D96287E13DA00D7BFF2 /* Log+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Log+PreviewProvider.swift"; sourceTree = "<group>"; };
 		ACF25D98287E151500D7BFF2 /* Food+PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+PreviewProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,8 +142,12 @@
 		AC9D57C5285D0C8B007956D2 = {
 			isa = PBXGroup;
 			children = (
-				AC45AAA72915AA0100D3C71A /* FoodEntity+CoreDataClass.swift */,
-				AC45AAA82915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift */,
+				AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */,
+				AC04774E2917FA2700EA6ABC /* LogEntity.swift */,
+				AC0477502917FA2700EA6ABC /* GoalEntity.swift */,
+				AC0477522917FA2700EA6ABC /* UserEntity.swift */,
+				AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */,
+				AC45AAA72915AA0100D3C71A /* FoodEntity.swift */,
 				ACD4D87528C269D400D97F61 /* Intents.intentdefinition */,
 				AC9D57D0285D0C8B007956D2 /* IJustAte */,
 				ACBB9D1A28BBA19F00A36955 /* IJustAteIntent */,
@@ -195,12 +212,11 @@
 		ACD4D88428C28A4600D97F61 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				AC9D57DA285D0C8D007956D2 /* CoreDataViewModel.swift */,
-				AC10B7BB2892C763000CFDE1 /* DateUtils.swift */,
-				ACBA874E2880E26000474639 /* Macro.swift */,
+				AC9D57DA285D0C8D007956D2 /* IJustAteViewModel.swift */,
+				AC10B7BB2892C763000CFDE1 /* Utils.swift */,
 				AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */,
 				AC47246B28D122E100076E74 /* PersistentContainer.swift */,
-				AC45AAA12915856700D3C71A /* FetchUtils.swift */,
+				AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -208,14 +224,16 @@
 		ACF25D8E287E01A500D7BFF2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AC10B7BD2892C7A6000CFDE1 /* LogCardList.swift */,
+				AC10B7BD2892C7A6000CFDE1 /* SwipableLogContainer.swift */,
+				AC04776929180FF800EA6ABC /* LogCard.swift */,
 				ACF060872881A3F0002D3017 /* HomeView.swift */,
 				ACF060852881A2FC002D3017 /* LoginView.swift */,
 				AC9D57D3285D0C8B007956D2 /* ContentView.swift */,
-				ACF25D85287E016F00D7BFF2 /* ViewFood.swift */,
-				ACF25D87287E017300D7BFF2 /* ViewLog.swift */,
+				ACF25D85287E016F00D7BFF2 /* FoodDetailView.swift */,
+				ACF25D87287E017300D7BFF2 /* LogDetailView.swift */,
+				AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */,
 				ACF25D89287E017A00D7BFF2 /* NewFoodView.swift */,
-				ACF25D8B287E017F00D7BFF2 /* AddLog.swift */,
+				ACF25D8B287E017F00D7BFF2 /* FoodList.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -324,28 +342,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF25D8C287E017F00D7BFF2 /* AddLog.swift in Sources */,
+				ACF25D8C287E017F00D7BFF2 /* FoodList.swift in Sources */,
 				ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */,
-				AC45AAA92915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */,
-				AC10B7BE2892C7A6000CFDE1 /* LogCardList.swift in Sources */,
-				AC10B7BC2892C763000CFDE1 /* DateUtils.swift in Sources */,
-				AC45AAAB2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */,
-				ACBA874F2880E26000474639 /* Macro.swift in Sources */,
+				AC04776C29181C1C00EA6ABC /* IJustAteProps.swift in Sources */,
+				AC45AAA92915AA0100D3C71A /* FoodEntity.swift in Sources */,
+				AC0477562917FA2700EA6ABC /* LogEntity.swift in Sources */,
+				AC04776A29180FF900EA6ABC /* LogCard.swift in Sources */,
+				AC10B7BE2892C7A6000CFDE1 /* SwipableLogContainer.swift in Sources */,
+				AC04775A2917FA2700EA6ABC /* GoalEntity.swift in Sources */,
+				AC10B7BC2892C763000CFDE1 /* Utils.swift in Sources */,
 				ACF060882881A3F0002D3017 /* HomeView.swift in Sources */,
 				ACD4D87F28C285BF00D97F61 /* IntentHandler.swift in Sources */,
 				ACF25D8A287E017A00D7BFF2 /* NewFoodView.swift in Sources */,
-				ACF25D88287E017300D7BFF2 /* ViewLog.swift in Sources */,
+				ACF25D88287E017300D7BFF2 /* LogDetailView.swift in Sources */,
 				AC47246A28D1076900076E74 /* PersistentHistoryObserver.swift in Sources */,
-				AC9D57DB285D0C8D007956D2 /* CoreDataViewModel.swift in Sources */,
+				AC9D57DB285D0C8D007956D2 /* IJustAteViewModel.swift in Sources */,
 				AC47246C28D122E100076E74 /* PersistentContainer.swift in Sources */,
 				AC9D57D4285D0C8B007956D2 /* ContentView.swift in Sources */,
 				ACF25D99287E151500D7BFF2 /* Food+PreviewProvider.swift in Sources */,
+				AC0477622917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */,
 				ACF0608A2881AC0A002D3017 /* User+PreviewProvider.swift in Sources */,
+				AC04776F291DB2C600EA6ABC /* LoggedFoodItem.swift in Sources */,
 				AC9D57DE285D0C8D007956D2 /* IJustAte.xcdatamodeld in Sources */,
 				AC10B7BA2892C731000CFDE1 /* CustomButton.swift in Sources */,
-				ACF25D86287E016F00D7BFF2 /* ViewFood.swift in Sources */,
+				AC04775E2917FA2700EA6ABC /* UserEntity.swift in Sources */,
+				ACF25D86287E016F00D7BFF2 /* FoodDetailView.swift in Sources */,
 				ACF060862881A2FC002D3017 /* LoginView.swift in Sources */,
-				AC45AAA22915856700D3C71A /* FetchUtils.swift in Sources */,
+				AC047772291DE87300EA6ABC /* ServerUpdateMessage.swift in Sources */,
 				ACD4D87628C269D400D97F61 /* Intents.intentdefinition in Sources */,
 				AC9D57D2285D0C8B007956D2 /* IJustAteApp.swift in Sources */,
 			);
@@ -356,16 +379,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */,
-				AC45AAA32915856700D3C71A /* FetchUtils.swift in Sources */,
-				ACD4D88028C285E900D97F61 /* CoreDataViewModel.swift in Sources */,
-				ACD4D88228C28A2300D97F61 /* DateUtils.swift in Sources */,
+				AC04775F2917FA2700EA6ABC /* UserEntity.swift in Sources */,
+				AC0477572917FA2700EA6ABC /* LogEntity.swift in Sources */,
+				ACD4D88028C285E900D97F61 /* IJustAteViewModel.swift in Sources */,
+				ACD4D88228C28A2300D97F61 /* Utils.swift in Sources */,
+				AC04775B2917FA2700EA6ABC /* GoalEntity.swift in Sources */,
+				AC04776D29181C1C00EA6ABC /* IJustAteProps.swift in Sources */,
+				AC0477632917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */,
 				ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */,
 				AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */,
 				AC47246E28D1248200076E74 /* PersistentHistoryObserver.swift in Sources */,
-				AC45AAAA2915AA0100D3C71A /* FoodEntity+CoreDataClass.swift in Sources */,
-				ACD4D88328C28A2E00D97F61 /* Macro.swift in Sources */,
-				AC45AAAC2915AA0100D3C71A /* FoodEntity+CoreDataProperties.swift in Sources */,
+				AC45AAAA2915AA0100D3C71A /* FoodEntity.swift in Sources */,
 				ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */,
+				AC047773291E86D600EA6ABC /* ServerUpdateMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

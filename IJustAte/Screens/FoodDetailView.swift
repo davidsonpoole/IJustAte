@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct ViewFood: View {
-    var food: FoodEntity
+struct FoodDetailView: View {
+    var food: FoodEntity?
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Food: \(food.name!)")
+            Text("Food: \(food?.name ?? "")")
                 .font(.largeTitle)
             Spacer().frame(maxHeight: 200)
-            Text("\(String.formatDouble(food.cal)) calories")
-            Text("\(String.formatDouble(food.pro))g protein")
-            Text("\(String.formatDouble(food.fat))g fat")
-            Text("\(String.formatDouble(food.car))g carbohydrates")
+            Text("\(String.formatDouble(food?.cal ?? 0)) calories")
+            Text("\(String.formatDouble(food?.pro ?? 0))g protein")
+            Text("\(String.formatDouble(food?.fat ?? 0))g fat")
+            Text("\(String.formatDouble(food?.car ?? 0))g carbohydrates")
         }
         .font(.title)
         .padding(20)
@@ -28,6 +28,6 @@ struct ViewFood: View {
 
 //struct ViewFood_Previews: PreviewProvider {
 //    static var previews: some View {
-//        ViewFood()
+//        FoodDetailView()
 //    }
 //}

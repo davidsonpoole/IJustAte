@@ -10,7 +10,7 @@ import CoreData
 
 extension LogEntity {
     static var example: LogEntity {
-        let context = CoreDataViewModel.preview.container.viewContext
+        let context = IJustAteViewModel.preview.container.viewContext
         let fetchRequest: NSFetchRequest<LogEntity> = LogEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)
@@ -18,7 +18,7 @@ extension LogEntity {
     }
     
     static var examples: [LogEntity] {
-        let context = CoreDataViewModel.preview.container.viewContext
+        let context = IJustAteViewModel.preview.container.viewContext
         let fetchRequest: NSFetchRequest<LogEntity> = LogEntity.fetchRequest()
         fetchRequest.fetchLimit = 1
         let results = try? context.fetch(fetchRequest)

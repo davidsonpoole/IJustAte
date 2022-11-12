@@ -14,8 +14,8 @@ final class PersistentContainer: NSPersistentContainer {
     private var persistentHistoryObserver: PersistentHistoryObserver?
     
     func setup() {
+        // Get shared database for app group
         let storeURL = URL.storeURL(for: "group.com.davidsonpoole.ijustate", databaseName: "IJustAte")
-        
         let storeDescription = NSPersistentStoreDescription(url: storeURL)
         storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
         storeDescription.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
@@ -29,7 +29,7 @@ final class PersistentContainer: NSPersistentContainer {
             }
         })
         
-        viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         persistentHistoryObserver = startObservingPersistentHistoryTransactions()
     }
@@ -51,5 +51,28 @@ final class PersistentContainer: NSPersistentContainer {
         context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
         context.automaticallyMergesChangesFromParent = true
         return context
+    }
+}
+
+extension NSManagedObjectContext {
+    func saveIfChanged() -> Void {
+        guard hasChanges else { return }
+        do {
+            try save()
+            print("saved data")
+            return
+        } catch {
+            print("Error saving data. \(error)")
+        }
+    }
+}
+
+public extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Shared file container could not be created.")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }
