@@ -20,9 +20,7 @@ public class LogEntity: NSManagedObject, Identifiable {
     }
     
     var totals: Macro {
-        let total = foodArr.map{$0.food}.reduce(Macro.empty) { $0 + $1.macro }
-        print("getting totals. Total calories is \(total.cal)")
-        return total
+        foodArr.map{$0.food}.reduce(Macro.empty) { $0 + $1.macro }
     }
     
 }

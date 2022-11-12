@@ -29,10 +29,7 @@ class IJustAteViewModel: ObservableObject {
             let request = FoodEntity.allFoodsFetchRequest()
             do {
                 if try container.viewContext.fetch(request).isEmpty {
-                    print("foods empty")
                     UserDefaults.standard.reset()
-                } else {
-                    print("foods present")
                 }
             } catch {
                 print("error fetching foods")
@@ -67,27 +64,27 @@ class IJustAteViewModel: ObservableObject {
             } catch {
                 print("Error fetching logged foods \(error)")
             }
-            
-            Array(Set(foods.map{$0.food})).forEach { food in
-                publisher(for: food, in: container.viewContext)
-                    .sink(receiveValue: { [weak self] updatedObject in
-                        let objectChanged = updatedObject.name != food.name ||
-                        updatedObject.cal != food.cal ||
-                        updatedObject.car != food.car ||
-                        updatedObject.fat != food.fat ||
-                        updatedObject.pro != food.pro
-                        
-                        if objectChanged {
-                            print("OBJECT CHANGED")
-                            let index = self?.foods.firstIndex(where: {
-                                $0.food.id == food.id
-                            })
-                            self?.foods[index!].food = updatedObject
-                            self?.objectWillChange.send()
-                        }
-                    })
-                    .store(in: &cancellables)
-            }
+//
+//            Array(Set(foods.map{$0.food})).forEach { food in
+//                publisher(for: food, in: container.viewContext)
+//                    .sink(receiveValue: { [weak self] updatedObject in
+//                        let objectChanged = updatedObject.name != food.name ||
+//                        updatedObject.cal != food.cal ||
+//                        updatedObject.car != food.car ||
+//                        updatedObject.fat != food.fat ||
+//                        updatedObject.pro != food.pro
+//
+//                        if objectChanged {
+//                            print("OBJECT CHANGED")
+//                            let index = self?.foods.firstIndex(where: {
+//                                $0.food.id == food.id
+//                            })
+//                            self?.foods[index!].food = updatedObject
+//                            self?.objectWillChange.send()
+//                        }
+//                    })
+//                    .store(in: &cancellables)
+//            }
         }
     }
     
@@ -263,7 +260,7 @@ class IJustAteViewModel: ObservableObject {
         session.fetchData(for: url, decoder: decoder) { [self] (result: Result<ServerUpdateMessage, Error>) in
             switch result {
             case .success(let msg):
-                print("Received update message from Server")
+                print("Received update message from Server:")
                 print(msg)
                 DispatchQueue.main.async { [self] in
                     msg.foods.forEach {
@@ -290,7 +287,7 @@ class IJustAteViewModel: ObservableObject {
                     session.fetchData(for: extURL, decoder: self.decoder) { [self] (result: Result<ServerUpdateMessage, Error>) in
                         switch result {
                         case .success(let msg):
-                            print("Received update message from Server")
+                            print("Received update message from Server:")
                             DispatchQueue.main.async { [self] in
                                 msg.foods.forEach {
                                     let newFood = FoodEntity(context: container.viewContext)
@@ -328,7 +325,6 @@ class IJustAteViewModel: ObservableObject {
         fetchRequest.predicate = NSCompoundPredicate(type: .and, subpredicates: [namePredicate, localPredicate])
         do {
             if let oldFood = try container.viewContext.fetch(fetchRequest).first {
-                print("found foods: \(oldFood.id)")
                 // find logs that contain food and update them
                 let loggedFoodRequest = LoggedFoodEntity.fetchRequest()
                 loggedFoodRequest.predicate = NSPredicate(format: "food == %@", oldFood)

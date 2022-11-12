@@ -22,9 +22,6 @@ struct LogDetailView: View {
                                 .padding([.trailing], 20)
                         }
                     }
-                    .onAppear {
-                        print("re rendering LoggedFoodItem")
-                    }
                 }
                 .onDelete(perform: delete)
             }

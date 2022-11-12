@@ -31,8 +31,5 @@ struct LogCard: View {
                     .foregroundColor(.black)
             }
         }
-        .onAppear {
-            print("re rendering LogCard")
-        }
     }
 }
