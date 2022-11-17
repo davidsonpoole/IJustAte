@@ -37,12 +37,6 @@ class IJustAteViewModel: ObservableObject {
             loadFoodsFromRemote()
             
             refresh()
-            
-            // test
-            let bigNumber = "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-            
-            let test: Double = bigNumber.convertToDouble()
-            
         }
     }
     
