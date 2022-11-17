@@ -10,9 +10,7 @@
 		AC0477562917FA2700EA6ABC /* LogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04774E2917FA2700EA6ABC /* LogEntity.swift */; };
 		AC0477572917FA2700EA6ABC /* LogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04774E2917FA2700EA6ABC /* LogEntity.swift */; };
 		AC04775A2917FA2700EA6ABC /* GoalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477502917FA2700EA6ABC /* GoalEntity.swift */; };
-		AC04775B2917FA2700EA6ABC /* GoalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477502917FA2700EA6ABC /* GoalEntity.swift */; };
 		AC04775E2917FA2700EA6ABC /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477522917FA2700EA6ABC /* UserEntity.swift */; };
-		AC04775F2917FA2700EA6ABC /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477522917FA2700EA6ABC /* UserEntity.swift */; };
 		AC0477622917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */; };
 		AC0477632917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */; };
 		AC04776A29180FF900EA6ABC /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776929180FF800EA6ABC /* LogCard.swift */; };
@@ -21,6 +19,8 @@
 		AC04776F291DB2C600EA6ABC /* LoggedFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */; };
 		AC047772291DE87300EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
 		AC047773291E86D600EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
+		AC109C472926C202009166A3 /* GoalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477502917FA2700EA6ABC /* GoalEntity.swift */; };
+		AC109C482926C205009166A3 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0477522917FA2700EA6ABC /* UserEntity.swift */; };
 		AC10B7BA2892C731000CFDE1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7B92892C731000CFDE1 /* CustomButton.swift */; };
 		AC10B7BC2892C763000CFDE1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BB2892C763000CFDE1 /* Utils.swift */; };
 		AC10B7BE2892C7A6000CFDE1 /* SwipableLogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC10B7BD2892C7A6000CFDE1 /* SwipableLogContainer.swift */; };
@@ -379,17 +379,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD4D87E28C285AA00D97F61 /* IntentHandler.swift in Sources */,
-				AC04775F2917FA2700EA6ABC /* UserEntity.swift in Sources */,
 				AC0477572917FA2700EA6ABC /* LogEntity.swift in Sources */,
 				ACD4D88028C285E900D97F61 /* IJustAteViewModel.swift in Sources */,
 				ACD4D88228C28A2300D97F61 /* Utils.swift in Sources */,
-				AC04775B2917FA2700EA6ABC /* GoalEntity.swift in Sources */,
 				AC04776D29181C1C00EA6ABC /* IJustAteProps.swift in Sources */,
+				AC109C472926C202009166A3 /* GoalEntity.swift in Sources */,
 				AC0477632917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */,
 				ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */,
 				AC47246D28D122E100076E74 /* PersistentContainer.swift in Sources */,
 				AC47246E28D1248200076E74 /* PersistentHistoryObserver.swift in Sources */,
 				AC45AAAA2915AA0100D3C71A /* FoodEntity.swift in Sources */,
+				AC109C482926C205009166A3 /* UserEntity.swift in Sources */,
 				ACD4D87728C269D400D97F61 /* Intents.intentdefinition in Sources */,
 				AC047773291E86D600EA6ABC /* ServerUpdateMessage.swift in Sources */,
 			);

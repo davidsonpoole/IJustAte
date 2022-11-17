@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-@objc(UserEntity)
 public class UserEntity: NSManagedObject, Identifiable {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<UserEntity> {
         return NSFetchRequest<UserEntity>(entityName: "UserEntity")
