@@ -26,11 +26,11 @@ struct NewFoodView: View {
             Text("New Food")
                 .font(.largeTitle)
                 .padding()
-            CustomTextField(name: "Food", input: $name)
-            CustomTextField(name: "Calories", numbersOnly: true, input: $cal)
-            CustomTextField(name: "Protein", numbersOnly: true, input: $pro)
-            CustomTextField(name: "Carbs", numbersOnly: true, input: $car)
-            CustomTextField(name: "Fat", numbersOnly: true, input: $fat)
+            CustomTextField(name: "Food", charLimit: 20, numbersOnly: false, input: $name)
+            CustomTextField(name: "Calories", input: $cal)
+            CustomTextField(name: "Protein", input: $pro)
+            CustomTextField(name: "Carbs", input: $car)
+            CustomTextField(name: "Fat", input: $fat)
             Spacer()
             HStack {
                 Text("Enter")
@@ -80,8 +80,17 @@ struct CustomTextField: View {
     let name: String
     var numbersOnly: Bool = false
     var input: Binding<String>
+    @ObservedObject var textBindingManager: TextBindingManager
+    
+    init(name: String, charLimit: Int = 5, numbersOnly: Bool = true, input: Binding<String>) {
+        self.name = name
+        self.numbersOnly = numbersOnly
+        self.input = input
+        _textBindingManager = ObservedObject(wrappedValue: TextBindingManager(limit: charLimit))
+    }
+    
     var body: some View {
-        TextField(name, text: input)
+        TextField(name, text: $textBindingManager.text)
             .padding()
             .overlay(
             RoundedRectangle(cornerRadius: 10)
@@ -92,6 +101,23 @@ struct CustomTextField: View {
             .keyboardType(numbersOnly ? .decimalPad : .default)
     }
 }
+
+class TextBindingManager: ObservableObject {
+    @Published var text = "" {
+        didSet {
+            if text.count > characterLimit && oldValue.count <= characterLimit {
+                text = String(text[..<text.index(text.startIndex, offsetBy: characterLimit)])
+                //text = oldValue
+            }
+        }
+    }
+    let characterLimit: Int
+
+    init(limit: Int = 5){
+        characterLimit = limit
+    }
+}
+
 //
 //struct AddFood_Previews: PreviewProvider {
 //    static var previews: some View {
