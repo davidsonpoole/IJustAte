@@ -136,10 +136,10 @@ class IJustAteViewModel: ObservableObject {
         defaults.set(id + 1, forKey: UserDefaults.Keys.lastFoodId.rawValue)
         
         newFood.name = name
-        newFood.cal = Double(cal) ?? 0
-        newFood.car = Double(car) ?? 0
-        newFood.pro = Double(pro) ?? 0
-        newFood.fat = Double(fat) ?? 0
+        newFood.cal = cal.convertToDouble()
+        newFood.car = car.convertToDouble()
+        newFood.pro = pro.convertToDouble()
+        newFood.fat = fat.convertToDouble()
         newFood.local = true
         
         viewContext.saveIfChanged()

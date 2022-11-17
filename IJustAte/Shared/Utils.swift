@@ -35,6 +35,16 @@ extension String {
             return String(format: "%.1f", double)
         }
     }
+    
+    func convertToDouble() -> Double {
+        guard let double = Double(self) else {
+            return 0
+        }
+        if double >= Double.infinity || double < 0 {
+            return 0
+        }
+        return double
+    }
 }
 
 extension URLSession {
