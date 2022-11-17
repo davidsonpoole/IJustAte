@@ -17,4 +17,12 @@ public class UserEntity: NSManagedObject, Identifiable {
     @NSManaged public var password: String?
     @NSManaged public var username: String?
     @NSManaged public var goal: GoalEntity?
+    
+    static var example: UserEntity {
+        let context = IJustAteViewModel.preview.container.viewContext
+        let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+        fetchRequest.fetchLimit = 1
+        let results = try? context.fetch(fetchRequest)
+        return (results?.first!)!
+    }
 }
