@@ -127,6 +127,16 @@ class IJustAteViewModel: ObservableObject {
         refresh()
     }
     
+    func deleteFood(food: FoodEntity) {
+        guard food.local else {
+            return
+        }
+        
+        container.viewContext.delete(food)
+        container.viewContext.saveIfChanged()
+        refresh()
+    }
+    
     func createFood(name: String, cal: String, car: String, pro: String, fat: String) {
         let viewContext = container.viewContext
         let newFood = FoodEntity(context: viewContext)
@@ -226,6 +236,17 @@ class IJustAteViewModel: ObservableObject {
         }
     }
     
+    func clearGlobalFoods() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FoodEntity")
+        fetchRequest.predicate = NSPredicate(format: "local == FALSE")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try container.viewContext.execute(deleteRequest)
+        } catch let error {
+            print("Error deleting foods. \(error)")
+        }
+    }
+    
     func clearFoods() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FoodEntity")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -263,6 +284,9 @@ class IJustAteViewModel: ObservableObject {
                 print("Received update message from Server:")
                 print(msg)
                 DispatchQueue.main.async { [self] in
+                    if (msg.reset) {
+                        clearGlobalFoods()
+                    }
                     msg.foods.forEach {
                         let newFood = FoodEntity(context: container.viewContext)
                         newFood.id = $0.id
@@ -289,6 +313,9 @@ class IJustAteViewModel: ObservableObject {
                         case .success(let msg):
                             print("Received update message from Server:")
                             DispatchQueue.main.async { [self] in
+                                if (msg.reset) {
+                                    clearGlobalFoods()
+                                }
                                 msg.foods.forEach {
                                     let newFood = FoodEntity(context: container.viewContext)
                                     newFood.id = $0.id

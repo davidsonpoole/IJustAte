@@ -10,6 +10,7 @@ import Foundation
 struct ServerUpdateMessage: Decodable {
     var foods: [NewFoodRequest]
     var timestamp: String
+    var reset: Bool
 }
 
 struct NewFoodRequest: Decodable {

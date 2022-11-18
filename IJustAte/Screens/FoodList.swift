@@ -18,6 +18,9 @@ struct FoodList: View {
     @FetchRequest(fetchRequest: FoodEntity.allFoodsFetchRequest())
     private var foods: FetchedResults<FoodEntity>
     
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "local == TRUE"))
+    private var localFoods: FetchedResults<FoodEntity>
+    
     @State private var showSuccess = false
     @State private var searchText = ""
     @State private var isNewFoodActive = false
@@ -26,10 +29,24 @@ struct FoodList: View {
         Text("What foods would you like to add?")
         ZStack {
             List {
-                ForEach(searchResults, id: \.self) { item in
-                    ListItem(text: item.name) {
-                        model.appendFoodToLog(food: item)
-                        showSuccess = true
+                Section(header: Text("My Foods")) {
+                    ForEach(localSearchResults, id: \.self) { item in
+                        ListItem(text: item.name) {
+                            model.appendFoodToLog(food: item)
+                            showSuccess = true
+                        }
+                    }
+                    .onDelete { indexSet in
+                        let foodToDelete = localSearchResults[indexSet.first!]
+                        model.deleteFood(food: foodToDelete)
+                    }
+                }
+                Section(header: Text("All Foods")) {
+                    ForEach(searchResults, id: \.self) { item in
+                        ListItem(text: item.name) {
+                            model.appendFoodToLog(food: item)
+                            showSuccess = true
+                        }
                     }
                 }
             }
@@ -58,6 +75,14 @@ struct FoodList: View {
                 .onTapGesture {
                     onTap()
                 }
+        }
+    }
+    
+    var localSearchResults: [FoodEntity] {
+        if searchText.isEmpty {
+            return localFoods.map{ $0 }
+        } else {
+            return localFoods.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
