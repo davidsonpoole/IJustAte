@@ -131,7 +131,17 @@ class IJustAteViewModel: ObservableObject {
         guard food.local else {
             return
         }
-        
+        // find loggedFoods
+        let fetchRequest = LoggedFoodEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "food == %@", food)
+        do {
+            let loggedFoods = try container.viewContext.fetch(fetchRequest)
+            loggedFoods.forEach {
+                container.viewContext.delete($0)
+            }
+        } catch {
+            print("error")
+        }
         container.viewContext.delete(food)
         container.viewContext.saveIfChanged()
         refresh()
