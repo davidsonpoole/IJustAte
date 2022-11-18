@@ -79,14 +79,12 @@ struct NewFoodView: View {
 struct CustomTextField: View {
     let name: String
     var numbersOnly: Bool = false
-    var input: Binding<String>
     @ObservedObject var textBindingManager: TextBindingManager
     
     init(name: String, charLimit: Int = 5, numbersOnly: Bool = true, input: Binding<String>) {
         self.name = name
         self.numbersOnly = numbersOnly
-        self.input = input
-        _textBindingManager = ObservedObject(wrappedValue: TextBindingManager(limit: charLimit))
+        _textBindingManager = ObservedObject(wrappedValue: TextBindingManager(text: input, limit: charLimit))
     }
     
     var body: some View {
@@ -103,17 +101,21 @@ struct CustomTextField: View {
 }
 
 class TextBindingManager: ObservableObject {
-    @Published var text = "" {
+    @Binding var text: String {
         didSet {
+            print("update")
+            print(text)
             if text.count > characterLimit && oldValue.count <= characterLimit {
-                text = String(text[..<text.index(text.startIndex, offsetBy: characterLimit)])
+                self.text = String(text[..<text.index(text.startIndex, offsetBy: characterLimit)])
+                print("got here")
                 //text = oldValue
             }
         }
     }
     let characterLimit: Int
 
-    init(limit: Int = 5){
+    init(text: Binding<String>, limit: Int = 5){
+        self._text = text
         characterLimit = limit
     }
 }
