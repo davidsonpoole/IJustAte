@@ -8,8 +8,9 @@
 import Foundation
 
 struct IJustAteProps {
-    static let localIP = "http://REDACTED_LOCAL_IP/"
-    static let externalIP = "http://REDACTED_EXTERNAL_IP/"
+    static let port = "8000";
+    static let localIP = "http://REDACTED_LOCAL_IP:" + port + "/";
+    static let externalIP = "http://REDACTED_EXTERNAL_IP:" + port + "/";
 }
 
 extension UserDefaults {
