@@ -14,7 +14,7 @@ public class FoodEntity: NSManagedObject, Encodable, Identifiable {
     @NSManaged public var cal: Double
     @NSManaged public var car: Double
     @NSManaged public var fat: Double
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int32
     @NSManaged public var name: String
     @NSManaged public var pro: Double
     @NSManaged public var local: Bool

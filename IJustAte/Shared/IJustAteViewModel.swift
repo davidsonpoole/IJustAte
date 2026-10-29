@@ -151,7 +151,7 @@ class IJustAteViewModel: ObservableObject {
         let viewContext = container.viewContext
         let newFood = FoodEntity(context: viewContext)
         
-        let id: Int16 = Int16(defaults.integer(forKey: UserDefaults.Keys.lastFoodId.rawValue))
+        let id = Int32(defaults.integer(forKey: UserDefaults.Keys.lastFoodId.rawValue))
         newFood.id = id
         defaults.set(id + 1, forKey: UserDefaults.Keys.lastFoodId.rawValue)
         
@@ -294,7 +294,9 @@ class IJustAteViewModel: ObservableObject {
                 print("Received update message from Server:")
                 print(msg)
                 DispatchQueue.main.async { [self] in
-                    if (msg.reset) {
+                    // Only honour a reset that arrives with foods to repopulate from;
+                    // an empty payload must never empty the catalog.
+                    if (msg.reset && !msg.foods.isEmpty) {
                         clearGlobalFoods()
                     }
                     msg.foods.forEach {
@@ -323,7 +325,9 @@ class IJustAteViewModel: ObservableObject {
                         case .success(let msg):
                             print("Received update message from Server:")
                             DispatchQueue.main.async { [self] in
-                                if (msg.reset) {
+                                // Only honour a reset that arrives with foods to repopulate from;
+                                // an empty payload must never empty the catalog.
+                                if (msg.reset && !msg.foods.isEmpty) {
                                     clearGlobalFoods()
                                 }
                                 msg.foods.forEach {

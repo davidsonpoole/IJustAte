@@ -14,7 +14,7 @@ struct ServerUpdateMessage: Decodable {
 }
 
 struct NewFoodRequest: Decodable {
-    var id: Int16
+    var id: Int32
     var name: String
     var cal: Double
     var car: Double
