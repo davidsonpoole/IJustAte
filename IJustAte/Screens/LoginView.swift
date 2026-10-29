@@ -17,7 +17,7 @@ struct LoginView: View {
     var body: some View {
         VStack {
             TextField("Username", text: $username)
-            TextField("Password", text: $password)
+            SecureField("Password", text: $password)
             
             Text("Login")
                 .padding()
@@ -30,15 +30,17 @@ struct LoginView: View {
         }
     }
     
+    // Not reachable: ContentView hardcodes authenticated = true.
+    //
+    // If this is ever built out, credentials must not be stored in Core Data.
+    // UserEntity previously carried a plaintext `password` attribute, and the
+    // implementation sketched here matched on it with a fetch predicate, which
+    // would have put passwords in an unencrypted SQLite file inside the shared
+    // app group. Verify against the server and keep nothing but a token, in
+    // the Keychain.
     func login() {
-//        verifyCredentials()
-//        @FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "username == %@ && password == %@", username, password)) var user: FetchedResults<User>
-//        self.user = user.first
-//        if (self.user != nil) {authenticated = true}
         authenticated = true
     }
-    
-    func verifyCredentials() { }
 }
 
 struct LoginView_PreviewHelper: View {

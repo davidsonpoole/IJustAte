@@ -17,7 +17,9 @@ extension Date {
     }
     
     func isToday() -> Bool {
-        return Date().get(.day) == self.get(.day)
+        // Compares the whole date. Comparing only .day made any 28th read as
+        // "today" on the 28th of any month or year.
+        return Calendar.current.isDateInToday(self)
     }
     var dayBefore: Date {
         return Calendar.current.date(byAdding: .day, value: -1, to: self)!

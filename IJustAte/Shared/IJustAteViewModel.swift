@@ -385,7 +385,6 @@ class IJustAteViewModel: ObservableObject {
         newGoal.fat = 20
         let newUser = UserEntity(context: viewContext)
         newUser.username = "davidson"
-        newUser.password = "password"
         //newUser.log = NSSet(object: newLog)
         newUser.goal = newGoal
         do {

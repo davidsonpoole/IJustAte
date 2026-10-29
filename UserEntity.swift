@@ -14,7 +14,6 @@ public class UserEntity: NSManagedObject, Identifiable {
         return NSFetchRequest<UserEntity>(entityName: "UserEntity")
     }
 
-    @NSManaged public var password: String?
     @NSManaged public var username: String?
     @NSManaged public var goal: GoalEntity?
     

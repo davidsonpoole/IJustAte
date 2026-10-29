@@ -32,7 +32,6 @@
         <relationship name="log" maxCount="1" deletionRule="Nullify" destinationEntity="LogEntity" inverseName="foods" inverseEntity="LogEntity"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
-        <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
         <relationship name="goal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalEntity" inverseName="user" inverseEntity="GoalEntity"/>
     </entity>
