@@ -16,6 +16,8 @@
 		AC04776A29180FF900EA6ABC /* LogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776929180FF800EA6ABC /* LogCard.swift */; };
 		AC04776C29181C1C00EA6ABC /* IJustAteProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */; };
 		AC04776D29181C1C00EA6ABC /* IJustAteProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */; };
+		4C7346298E6B9912532AF3DD /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF50D1FC9C55500D5C1DDA /* ServerConfig.swift */; };
+		31669CAD04DA0F23EA8A8380 /* ServerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF50D1FC9C55500D5C1DDA /* ServerConfig.swift */; };
 		AC04776F291DB2C600EA6ABC /* LoggedFoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */; };
 		AC047772291DE87300EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
 		AC047773291E86D600EA6ABC /* ServerUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */; };
@@ -88,6 +90,8 @@
 		AC0477542917FA2700EA6ABC /* LoggedFoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedFoodEntity.swift; sourceTree = "<group>"; };
 		AC04776929180FF800EA6ABC /* LogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCard.swift; sourceTree = "<group>"; };
 		AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJustAteProps.swift; sourceTree = "<group>"; };
+		E0FF50D1FC9C55500D5C1DDA /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
+		144D6BDA002F894A9C7F2261 /* ServerConfig.example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.example.swift; sourceTree = "<group>"; };
 		AC04776E291DB2C600EA6ABC /* LoggedFoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedFoodItem.swift; sourceTree = "<group>"; };
 		AC047771291DE87300EA6ABC /* ServerUpdateMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerUpdateMessage.swift; sourceTree = "<group>"; };
 		AC10B7B92892C731000CFDE1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				AC47246928D1076900076E74 /* PersistentHistoryObserver.swift */,
 				AC47246B28D122E100076E74 /* PersistentContainer.swift */,
 				AC04776B29181C1C00EA6ABC /* IJustAteProps.swift */,
+				E0FF50D1FC9C55500D5C1DDA /* ServerConfig.swift */,
+				144D6BDA002F894A9C7F2261 /* ServerConfig.example.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				ACF25D8C287E017F00D7BFF2 /* FoodList.swift in Sources */,
 				ACF25D97287E13DA00D7BFF2 /* Log+PreviewProvider.swift in Sources */,
 				AC04776C29181C1C00EA6ABC /* IJustAteProps.swift in Sources */,
+				4C7346298E6B9912532AF3DD /* ServerConfig.swift in Sources */,
 				AC45AAA92915AA0100D3C71A /* FoodEntity.swift in Sources */,
 				AC0477562917FA2700EA6ABC /* LogEntity.swift in Sources */,
 				AC04776A29180FF900EA6ABC /* LogCard.swift in Sources */,
@@ -385,6 +392,7 @@
 				AC109C492926C32A009166A3 /* User+PreviewProvider.swift in Sources */,
 				ACD4D88228C28A2300D97F61 /* Utils.swift in Sources */,
 				AC04776D29181C1C00EA6ABC /* IJustAteProps.swift in Sources */,
+				31669CAD04DA0F23EA8A8380 /* ServerConfig.swift in Sources */,
 				AC109C472926C202009166A3 /* GoalEntity.swift in Sources */,
 				AC0477632917FA2700EA6ABC /* LoggedFoodEntity.swift in Sources */,
 				ACD4D88128C28A1000D97F61 /* IJustAte.xcdatamodeld in Sources */,

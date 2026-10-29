@@ -7,10 +7,12 @@
 
 import Foundation
 
+// Server addresses live in ServerConfig.swift, which is untracked.
+// See ServerConfig.example.swift to set up a fresh clone.
 struct IJustAteProps {
-    static let port = "8000";
-    static let localIP = "http://REDACTED_LOCAL_IP:" + port + "/";
-    static let externalIP = "http://REDACTED_EXTERNAL_IP:" + port + "/";
+    static let port = ServerConfig.port;
+    static let localIP = "http://" + ServerConfig.localHost + ":" + port + "/";
+    static let externalIP = "http://" + ServerConfig.externalHost + ":" + port + "/";
 }
 
 extension UserDefaults {
