@@ -8,18 +8,25 @@ SwiftUI + Core Data, iOS 15.5+, no third-party dependencies.
 
 ## Setup
 
-Server addresses are not committed. Create your own config before building:
+The server address is not committed. Create your own config before building:
 
 ```sh
 cp IJustAte/Shared/ServerConfig.example.swift IJustAte/Shared/ServerConfig.swift
 ```
 
-Then edit it with your server's address and port. `ServerConfig.swift` is
-gitignored, and the project will not compile until it exists.
+Then set `baseURL` to your server. `ServerConfig.swift` is gitignored, and the
+project will not compile until it exists.
 
 Open `IJustAte.xcodeproj` and run the `IJustAte` scheme.
 
-`ServerConfig.port` must match the port the server binds (default `8000`).
+### Reaching the server
+
+The server is published on a Tailscale tailnet over HTTPS (`make expose` in the
+server repo), so `baseURL` is its MagicDNS name — one address that works at
+home and on cellular, with no port forwarding and no certificate to manage.
+
+**This device must have Tailscale installed and connected**, or the app cannot
+reach the server at all; there is no fallback path by design.
 
 ## Targets
 

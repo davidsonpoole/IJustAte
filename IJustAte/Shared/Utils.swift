@@ -48,17 +48,21 @@ extension String {
 extension URLSession {
     func fetchData<T: Decodable>(for url: URL, decoder: JSONDecoder, completion: @escaping (Result<T, Error>) -> Void) {
         self.dataTask(with: url) { (data, response, error) in
+            // Each path must return: the error branch used to fall through to
+            // the data branch and call completion twice.
             if let error = error {
                 completion(.failure(error))
+                return
             }
-
-            if let data = data {
-                do {
-                    let object = try decoder.decode(T.self, from: data)
-                    completion(.success(object))
-                } catch let decoderError {
-                    completion(.failure(decoderError))
-                }
+            guard let data = data else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+            do {
+                let object = try decoder.decode(T.self, from: data)
+                completion(.success(object))
+            } catch let decoderError {
+                completion(.failure(decoderError))
             }
         }.resume()
     }

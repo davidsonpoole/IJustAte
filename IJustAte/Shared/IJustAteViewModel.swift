@@ -164,64 +164,36 @@ class IJustAteViewModel: ObservableObject {
         
         viewContext.saveIfChanged()
         
-        // Send food information to global database for approval
+        // Submit to the global database for approval
         let route = "foods/api/foods/"
-        var req = URLRequest(url: URL(string: IJustAteProps.localIP + route)!)
-        req.httpMethod = "POST"
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        req.setValue("application/json", forHTTPHeaderField: "Accept")
-        req.httpBody = try? JSONEncoder().encode(newFood)
-        
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 3.0
-        let session = URLSession(configuration: sessionConfig)
-        session.dataTask(with: req) { data, response, error in
-            guard
-                let _ = data,
-                let response = response as? HTTPURLResponse,
-                error == nil
-            else {
-                print("Unable to connect to Local IP. Trying External IP...")
-                req = URLRequest(url: URL(string: IJustAteProps.externalIP + route)!)
-                req.httpMethod = "POST"
-                req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                req.setValue("application/json", forHTTPHeaderField: "Accept")
-                req.httpBody = try? JSONEncoder().encode(newFood)
-                
-                session.dataTask(with: req) { data, response, error in
-                    guard
-                        let _ = data,
-                        let response = response as? HTTPURLResponse,
-                        error == nil
-                    else {
-                        print("error", error ?? URLError(.badServerResponse))
-                        return
-                    }
-                    guard (200...299) ~= response.statusCode else {
-                        print("status code should be 2xx, but it is \(response.statusCode)")
-                        print("response = \(response)")
-                        return
-                    }
-                    
-                    // Success
-                    print("Successfully sent new food.")
-                    
-                }.resume()
-                
-                // will not resuming twice cause a problem?
-                
-                return
-            }
-            guard (200...299) ~= response.statusCode else {
-                print("status code should be 2xx, but it is \(response.statusCode)")
-                print("response = \(response)")
-                return
-            }
-            
-            // Success
-            print("Successfully sent new food.")
-            
-        }.resume()
+        if let url = URL(string: IJustAteProps.baseURL + route) {
+            var req = URLRequest(url: url)
+            req.httpMethod = "POST"
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("application/json", forHTTPHeaderField: "Accept")
+            req.httpBody = try? JSONEncoder().encode(newFood)
+
+            let sessionConfig = URLSessionConfiguration.default
+            sessionConfig.timeoutIntervalForRequest = 10.0
+            let session = URLSession(configuration: sessionConfig)
+            session.dataTask(with: req) { _, response, error in
+                if let error = error {
+                    print("Failed to submit new food: " + error.localizedDescription)
+                    return
+                }
+                guard let http = response as? HTTPURLResponse else {
+                    print("Failed to submit new food: no HTTP response")
+                    return
+                }
+                guard (200...299) ~= http.statusCode else {
+                    print("Failed to submit new food: status \(http.statusCode)")
+                    return
+                }
+                print("Successfully sent new food.")
+            }.resume()
+        } else {
+            print("Invalid server URL: \(IJustAteProps.baseURL)")
+        }
         
         refresh()
     }
@@ -278,15 +250,17 @@ class IJustAteViewModel: ObservableObject {
     }
     
     func loadFoodsFromRemote() {
-        let route = "foods/api/foods"
-        let lastTimestamp: String = defaults.string(forKey: UserDefaults.Keys.lastTimestamp.rawValue)!
-        var urlParam = ""
-        if lastTimestamp != "" {
-            urlParam = "/?time=" + lastTimestamp
+        // Trailing slash matches the server's canonical route; without it the
+        // request takes a 301 on every sync.
+        let route = "foods/api/foods/"
+        let lastTimestamp = defaults.string(forKey: UserDefaults.Keys.lastTimestamp.rawValue) ?? ""
+        let urlParam = lastTimestamp.isEmpty ? "" : "?time=" + lastTimestamp
+        guard let url = URL(string: IJustAteProps.baseURL + route + urlParam) else {
+            print("Invalid server URL: \(IJustAteProps.baseURL)")
+            return
         }
-        let url = URL(string: IJustAteProps.localIP + route + urlParam)!
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 3.0
+        sessionConfig.timeoutIntervalForRequest = 10.0
         let session = URLSession(configuration: sessionConfig)
         session.fetchData(for: url, decoder: decoder) { [self] (result: Result<ServerUpdateMessage, Error>) in
             switch result {
@@ -308,51 +282,16 @@ class IJustAteViewModel: ObservableObject {
                         newFood.fat = $0.fat
                         newFood.pro = $0.pro
                         newFood.local = false
-                        
+
                         mergeDuplicateFood(food: newFood)
                         refresh()
                     }
-                    // get the first food which is the most recently updated
                     defaults.set(msg.timestamp, forKey: UserDefaults.Keys.lastTimestamp.rawValue)
                     self.container.viewContext.saveIfChanged()
                 }
-            case .failure(_ ):
-                print("Unable to connect. Trying external IP...")
-                let extURL = URL(string: IJustAteProps.externalIP + route + urlParam)!
-                DispatchQueue.main.async {
-                    session.fetchData(for: extURL, decoder: self.decoder) { [self] (result: Result<ServerUpdateMessage, Error>) in
-                        switch result {
-                        case .success(let msg):
-                            print("Received update message from Server:")
-                            DispatchQueue.main.async { [self] in
-                                // Only honour a reset that arrives with foods to repopulate from;
-                                // an empty payload must never empty the catalog.
-                                if (msg.reset && !msg.foods.isEmpty) {
-                                    clearGlobalFoods()
-                                }
-                                msg.foods.forEach {
-                                    let newFood = FoodEntity(context: container.viewContext)
-                                    newFood.id = $0.id
-                                    newFood.name = $0.name
-                                    newFood.cal = $0.cal
-                                    newFood.car = $0.car
-                                    newFood.fat = $0.fat
-                                    newFood.pro = $0.pro
-                                    newFood.local = false
-                                    
-                                    mergeDuplicateFood(food: newFood)
-                                    refresh()
-                                }
-                                // get the first food which is the most recently updated
-                                defaults.set(msg.timestamp, forKey: UserDefaults.Keys.lastTimestamp.rawValue)
-                                self.container.viewContext.saveIfChanged()
-                            }
-                        case .failure(let error):
-                            print("load failed " + error.localizedDescription)
-                      }
-                    }
-                }
-          }
+            case .failure(let error):
+                print("Catalog sync failed: " + error.localizedDescription)
+            }
         }
     }
     
